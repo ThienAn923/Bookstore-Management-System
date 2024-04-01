@@ -1,0 +1,26 @@
+#pane{
+    -fx-background-image:url(../images/xyz.jpg); ;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%;
+    -fx-background-color: #ffffff;
+}
+#titleLogo{
+    -fx-background-image: url(../images/loginLogo.png);;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%;
+    -fx-background-color: #ffffff;
+}
+
+#headerLogoPicture{
+    -fx-background-image: url(../images/loginLogo2.png);;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%;
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 50%;
+}

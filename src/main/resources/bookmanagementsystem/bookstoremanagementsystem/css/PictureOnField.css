@@ -1,0 +1,12 @@
+.root {
+    -fx-padding: 15;
+    -fx-background-color: cornsilk;
+}
+
+#textField {
+    -fx-background-image: url('http://icons.iconarchive.com/icons/rockettheme/halloween/32/pumpkin-icon.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: left center; /* Changed from right to left */
+    -fx-font-size: 14; /* Decreased font size to make it smaller */
+    /*-fx-padding: 5 5 5 5; !* Adjusted padding to make room for the image on the left *!*/
+}
