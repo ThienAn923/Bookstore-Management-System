@@ -113,113 +113,13 @@ public class floorManagementController implements Initializable {
         }
     }
 
-//    private void getFloor() {
-//
-//        con = dbConnect.getConnect();
-//        refreshTable();
-//
-//        florIdCol.setCellValueFactory(new PropertyValueFactory<>("FloorID"));
-//        floorNameCol.setCellValueFactory(new PropertyValueFactory<>("FloorName"));
-//
-//        Callback<TableColumn<floor, String>, TableCell<floor, String>> cellFoctory = (TableColumn<floor, String> param) -> {
-//            // make cell containing buttons
-//            final TableCell<floor, String> cell = new TableCell<floor, String>() {
-//                @Override
-//                public void updateItem(String item, boolean empty) {
-//                    super.updateItem(item, empty);
-//                    //that cell created only on non-empty rows
-//                    if (empty) {
-//                        setGraphic(null);
-//                        setText(null);
-//
-//                    } else {
-//
-//                        FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
-//                        FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
-//
-//                        deleteIcon.setStyle(
-//                                " -fx-cursor: hand ;"
-//                                        + "-glyph-size:28px;"
-//                                        + "-fx-fill:#ff1744;"
-//                        );
-//                        editIcon.setStyle(
-//                                " -fx-cursor: hand ;"
-//                                        + "-glyph-size:28px;"
-//                                        + "-fx-fill:#00E676;"
-//                        );
-//                        deleteIcon.setOnMouseClicked((MouseEvent event) -> {
-//                            try {
-//                                floor = FloorTable.getSelectionModel().getSelectedItem();
-//                                query = "DELETE FROM `floor` WHERE FloorID  ='"+floor.getFloorID() +"'";
-//                                con = dbConnect.getConnect();
-//                                preparedStatement = con.prepareStatement(query);
-//                                preparedStatement.execute();
-//                                refreshTable();
-//
-//                            } catch (SQLException ex) {
-//                                Logger.getLogger(floorManagementController.class.getName()).log(Level.SEVERE, null, ex);
-//                            }
-//
-//
-//
-//
-//
-//                        });
-//                        editIcon.setOnMouseClicked((MouseEvent event) -> {
-//
-//                            floor = FloorTable.getSelectionModel().getSelectedItem();
-//
-//
-//                            try {
-//                                FXMLLoader loader = new FXMLLoader(getClass().getResource("floorModify.fxml"));
-//                                Parent root = loader.load();
-//                                floorModifyController fac = loader.getController();
-//                                if (fac != null) {
-//                                    fac.setUpdate(true);
-//                                    fac.setValue(floor.getFloorID(), floor.getFloorName());
-//                                } else {
-//                                    System.err.println("Controller is null.");
-//                                }
-//                                Stage stage = new Stage();
-//                                stage.setTitle("Modify Floor");
-//                                stage.setScene(new Scene(root));
-//                                stage.show();
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
-//
-//                        });
-//
-//                        HBox managebtn = new HBox(editIcon, deleteIcon);
-//                        managebtn.setStyle("-fx-alignment:center");
-//                        HBox.setMargin(deleteIcon, new Insets(2, 2, 0, 3));
-//                        HBox.setMargin(editIcon, new Insets(2, 3, 0, 2));
-//
-//                        setGraphic(managebtn);
-//
-//                        setText(null);
-//
-//                    }
-//                }
-//
-//            };
-//
-//            return cell;
-//        };
-//        Action.setCellFactory(cellFoctory);
-//        FloorTable.setItems(floors);
-//    }
-
-
-
-
     private void getFloor() {
         con = dbConnect.getConnect();
         refreshData();
 
         for (floor floor : floors) {
             HBox floorBox = new HBox(); //Create container to hold the floors
-            floorBox.setStyle("-fx-border-color: gray; " +
+            floorBox.setStyle("-fx-border-color: rgb(128,128,128); " +
                     "-fx-border-width: 0 1px 1px 1px; " +
                     "-fx-border-style: solid;");
 
