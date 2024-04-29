@@ -219,6 +219,9 @@ public class floorManagementController implements Initializable {
 
         for (floor floor : floors) {
             HBox floorBox = new HBox(); //Create container to hold the floors
+            floorBox.setStyle("-fx-border-color: gray; " +
+                    "-fx-border-width: 0 1px 1px 1px; " +
+                    "-fx-border-style: solid;");
 
             floorBox.setPrefHeight(36);
             floorBox.setAlignment(Pos.CENTER_LEFT); //set the position of component inside the containner

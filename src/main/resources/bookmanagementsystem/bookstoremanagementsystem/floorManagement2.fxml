@@ -50,9 +50,18 @@
                         <Label prefWidth="370.0" text="ID tầng">
                            <HBox.margin>
                               <Insets left="30.0" />
-                           </HBox.margin></Label>
-                        <Label prefWidth="510.0" text="Tên tầng" />
-                        <Label text="Tác vụ" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label prefWidth="510.0" text="Tên tầng">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Tác vụ">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
                      </children>
                   </HBox>
                </children>
