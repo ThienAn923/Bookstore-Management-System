@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.floorManagementController">
+   <children>
+      <Pane prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee;">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee; -fx-border-radius: 500px;">
+               <children>
+                  <Label text="QUẢN LÝ TẦNG">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="805.0" style="-fx-background-color: #eeeeee; -fx-border-width: 2 2 2 2;">
+                     <children>
+                        <Button fx:id="refreshButton" mnemonicParsing="false" onMouseClicked="#refresh" text="Refresh">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="floorAddButton" mnemonicParsing="false" onMouseClicked="#addFloor" text="Thêm Tầng">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <ScrollPane fx:id="floorsScrollPane" layoutY="78.0" prefHeight="480.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee;">
+         <content>
+            <VBox fx:id="floorContainer" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: white;">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="998.0" style="-fx-border-width: 1 1 1 1; -fx-border-color: gray;">
+                     <children>
+                        <Label prefWidth="370.0" text="ID tầng">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin></Label>
+                        <Label prefWidth="510.0" text="Tên tầng" />
+                        <Label text="Tác vụ" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</Pane>

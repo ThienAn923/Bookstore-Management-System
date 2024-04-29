@@ -4,7 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b847680c-1635-49b6-ab5a-0f41e00a5caf" name="Changes" comment="test" />
+    <list default="true" id="b847680c-1635-49b6-ab5a-0f41e00a5caf" name="Changes" comment="test">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/TwoVBoxAnimation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/area.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/areaAdd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/areaAddController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/areaManagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/areaModifyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/bookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/bookManagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/dashBoardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/dbConnect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/floor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/floorAdd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/floorAddController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/floorManagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/floorModifyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/mainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/testManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/areaModify.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/AreaManagement.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/Libs/fontawesomefx-commons-9.1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/Libs/mysql-connector-j-8.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/areaAdd.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/areaModify.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/bookManagement.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/books.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/dashBoard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/floorAdd.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/floorManagement.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/floorManagement2.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/floorModify.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/icons/svg/coffee.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/TestFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/TestFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,15 +55,26 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
+        <option value="CSS File" />
         <option value="Class" />
         <option value="JavaFXApplication" />
-        <option value="CSS File" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Test" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/floorManagementController.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -34,40 +87,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/CTU/Java/IntellijProject/BookStore/BookstoreManagementSystem/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/images",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/CTU/Java/IntellijProject/BookStore/BookstoreManagementSystem/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/Libs/fontawesomefx-commons-9.1.2.jar&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources\bookmanagementsystem\bookstoremanagementsystem\Libs" />
+      <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources\bookmanagementsystem\bookstoremanagementsystem\icons\svg" />
+      <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources" />
       <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources\bookmanagementsystem\bookstoremanagementsystem\images" />
       <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\java\bookmanagementsystem\bookstoremanagementsystem" />
-      <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources\bookmanagementsystem\bookstoremanagementsystem\Libs" />
-      <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources\bookmanagementsystem\bookstoremanagementsystem" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources\bookmanagementsystem\bookstoremanagementsystem" />
+      <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources\bookmanagementsystem\bookstoremanagementsystem\Libs" />
+      <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources" />
       <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources\bookmanagementsystem\bookstoremanagementsystem\css" />
     </key>
   </component>
@@ -119,14 +176,62 @@
       <workItem from="1711714325165" duration="2119000" />
       <workItem from="1711730491595" duration="6000" />
       <workItem from="1711760989297" duration="3000" />
+      <workItem from="1711971806689" duration="5642000" />
+      <workItem from="1712058080184" duration="5392000" />
+      <workItem from="1712074457148" duration="995000" />
+      <workItem from="1712075532123" duration="4912000" />
+      <workItem from="1712133404718" duration="8568000" />
+      <workItem from="1712159091056" duration="4220000" />
+      <workItem from="1712187868927" duration="1493000" />
+      <workItem from="1712447291581" duration="3886000" />
+      <workItem from="1712461445314" duration="683000" />
+      <workItem from="1712467270179" duration="2604000" />
+      <workItem from="1712484942486" duration="7258000" />
+      <workItem from="1712498593584" duration="4895000" />
+      <workItem from="1712644654872" duration="2641000" />
+      <workItem from="1712654960427" duration="16000" />
+      <workItem from="1712672723785" duration="3911000" />
+      <workItem from="1712679274509" duration="574000" />
+      <workItem from="1712705511809" duration="1203000" />
+      <workItem from="1712740498834" duration="13856000" />
+      <workItem from="1712771865635" duration="164000" />
+      <workItem from="1712772043126" duration="1039000" />
+      <workItem from="1712792241904" duration="479000" />
+      <workItem from="1712795748378" duration="8043000" />
+      <workItem from="1712806336911" duration="1918000" />
+      <workItem from="1712921564674" duration="1262000" />
+      <workItem from="1714212819385" duration="6802000" />
+      <workItem from="1714292647917" duration="8824000" />
     </task>
+    <task id="LOCAL-00001" summary="test">
+      <option name="closed" value="true" />
+      <created>1711971826492</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711971826492</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

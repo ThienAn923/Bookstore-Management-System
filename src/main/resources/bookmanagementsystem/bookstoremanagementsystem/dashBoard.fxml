@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="dashboardPane" prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.dashBoardController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="1000.0">
+         <children>
+            <Label text="This month's stats">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutY="70.0" prefHeight="70.0" prefWidth="1000.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="210.0" style="-fx-background-color: white;">
+               <HBox.margin>
+                  <Insets left="50.0" right="20.0" />
+               </HBox.margin>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Total sales">
+                           <VBox.margin>
+                              <Insets top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="999999">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label text="Label" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Circle>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="210.0" style="-fx-background-color: white;">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Total sales">
+                           <VBox.margin>
+                              <Insets top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="999999">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Label" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Circle>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="210.0" style="-fx-background-color: white;">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Total sales">
+                           <VBox.margin>
+                              <Insets top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="999999">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Label" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Circle>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="210.0" style="-fx-background-color: white;">
+               <HBox.margin>
+                  <Insets right="50.0" />
+               </HBox.margin>
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Total sales">
+                           <VBox.margin>
+                              <Insets top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="999999">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Label" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Circle>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox layoutY="140.0" prefHeight="200.0" prefWidth="1000.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="625.0" style="-fx-background-color: white;">
+               <HBox.margin>
+                  <Insets left="50.0" top="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="170.0" prefWidth="255.0" style="-fx-background-color: white;">
+               <HBox.margin>
+                  <Insets left="20.0" top="30.0" />
+               </HBox.margin>
+            </Pane>
+         </children>
+      </HBox>
+      <HBox layoutY="340.0" prefHeight="210.0" prefWidth="1000.0">
+         <children>
+            <Pane prefHeight="180.0" prefWidth="675.0" style="-fx-background-color: white;">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="50.0" top="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="205.0" style="-fx-background-color: white;">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" top="30.0" />
+               </HBox.margin>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</Pane>

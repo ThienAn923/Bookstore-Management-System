@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: white; -fx-border-width: 1 0 0 0; -fx-border-color: #eeeeee;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.bookController">
+   <children>
+      <ImageView fx:id="bookImage" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets bottom="5.0" left="20.0" top="5.0" />
+         </HBox.margin>
+         <image>
+            <Image url="@images/test.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="bookID" text="ID">
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="bookAuthor" text="Tác giả">
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="bookPublisher" text="Nhà xuất bản">
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="bookCost" text="Giá">
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="bookRepublish" text="Tái bản">
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="bookLocation" text="Vị trí">
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="bookCategory" text="Thể loại">
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="bookDescription" text="Mô tả">
+         <HBox.margin>
+            <Insets left="50.0" right="20.0" />
+         </HBox.margin>
+      </Label>
+   </children>
+</HBox>

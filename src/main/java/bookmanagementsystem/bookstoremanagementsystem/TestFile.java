@@ -2,29 +2,39 @@ package bookmanagementsystem.bookstoremanagementsystem;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class TestFile extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
-        TextField textField = new TextField();
+    public void start(Stage primaryStage) throws Exception {
+        // Create a VBox
+        VBox vBox = new VBox();
 
-        Image image = new Image("file:icon.png"); // replace with your image file path
-        ImageView imageView = new ImageView(image);
-        imageView.setFitHeight(15); // adjust the height and width as per your needs
-        imageView.setFitWidth(15);
+        // Add some HBox instances to the VBox
+        for (int i = 0; i < 5; i++) {
+            HBox hBox = new HBox(new Button("Button " + i));
+            vBox.getChildren().add(hBox);
+        }
 
-//        textField.setGraphic(imageView);
+        // Create a button to delete all children of the VBox
+        Button deleteButton = new Button("Delete All Children");
+        deleteButton.setOnAction(event -> {
+            vBox.getChildren().clear(); // Clear all children of the VBox
+        });
 
-        VBox vbox = new VBox(textField);
-        Scene scene = new Scene(vbox, 200, 100);
+        // Add the delete button to the VBox
+        vBox.getChildren().add(deleteButton);
 
+        // Create a scene with the VBox as the root
+        Scene scene = new Scene(vBox, 400, 300);
+
+        // Set the scene to the stage and show the stage
         primaryStage.setScene(scene);
+        primaryStage.setTitle("VBox with HBox Children");
         primaryStage.show();
     }
 

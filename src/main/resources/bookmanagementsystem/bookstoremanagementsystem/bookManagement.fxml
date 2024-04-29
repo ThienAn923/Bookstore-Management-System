@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.bookManagementController">
+   <children>
+      <Pane prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: white;">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee; -fx-border-radius: 500px;">
+               <children>
+                  <Label text="QUẢN LÝ SÁCH">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <ScrollPane layoutY="70.0" prefHeight="480.0" prefWidth="1000.0" style="-fx-background-color: white;">
+         <content>
+            <TableView fx:id="bookTable" prefHeight="500.0" prefWidth="1000.0">
+              <columns>
+                <TableColumn fx:id="bookIdCol" prefWidth="100.0" text="ID sách" />
+                <TableColumn fx:id="bookAuthorCol" prefWidth="150.0" text="Tác giả" />
+                  <TableColumn fx:id="bookPublisherCol" prefWidth="150.0" text="Nhà xuất bản" />
+                  <TableColumn fx:id="bookCostCol" prefWidth="100.0" text="Giá" />
+                  <TableColumn fx:id="bookRepulbishCol" prefWidth="75.0" text="Tái bản" />
+                  <TableColumn fx:id="bookLocationCol" prefWidth="100.0" text="Vị trí sách" />
+                  <TableColumn fx:id="bookCategoryCol" prefWidth="100.0" text="Thể loại" />
+                  <TableColumn fx:id="bookDescriptionCol" prefWidth="225.0" text="Mô Tả" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+   </children>
+</Pane>
