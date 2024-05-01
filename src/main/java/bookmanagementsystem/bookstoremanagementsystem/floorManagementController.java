@@ -34,14 +34,6 @@ import javafx.scene.layout.HBox;
 
 public class floorManagementController implements Initializable {
     @FXML
-    private TableView<floor> FloorTable;
-    @FXML
-    private TableColumn<floor, String> florIdCol;
-    @FXML
-    private TableColumn<floor, String> floorNameCol;
-    @FXML
-    private TableColumn<floor,String> Action;
-    @FXML
     private Button floorAddButton;
     @FXML
     private Button refreshButton;
@@ -105,7 +97,6 @@ public class floorManagementController implements Initializable {
                 floors.add(new floor(
                         resultSet.getString("FloorID"),
                         resultSet.getString("FloorName")));
-//                FloorTable.setItems((ObservableList<bookmanagementsystem.bookstoremanagementsystem.floor>) floors);
             }
             con.close();
         } catch (SQLException ex) {
@@ -126,8 +117,8 @@ public class floorManagementController implements Initializable {
             floorBox.setPrefHeight(36);
             floorBox.setAlignment(Pos.CENTER_LEFT); //set the position of component inside the containner
 
-            Label floorIdLabel = new Label("Floor ID: " + floor.getFloorID());
-            Label floorNameLabel = new Label("Floor Name: " + floor.getFloorName());
+            Label floorIdLabel = new Label(floor.getFloorID());
+            Label floorNameLabel = new Label(floor.getFloorName());
 
             floorIdLabel.setMinWidth(370);
             floorNameLabel.setMinWidth(510);

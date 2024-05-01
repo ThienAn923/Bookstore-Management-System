@@ -11,7 +11,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.floorManagementController">
    <children>
-      <Pane prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee;">
+      <Pane prefHeight="70.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee;">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee; -fx-border-radius: 500px;">
                <children>
@@ -41,9 +41,9 @@
             </HBox>
          </children>
       </Pane>
-      <ScrollPane fx:id="floorsScrollPane" layoutY="78.0" prefHeight="480.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee;">
+      <ScrollPane fx:id="floorsScrollPane" layoutY="70.0" prefHeight="480.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee;">
          <content>
-            <VBox fx:id="floorContainer" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: white;">
+            <VBox fx:id="floorContainer" prefHeight="1000.0" prefWidth="997.0" style="-fx-background-color: white;">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="998.0" style="-fx-border-width: 1 1 1 1; -fx-border-color: gray;">
                      <children>
