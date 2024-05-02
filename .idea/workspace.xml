@@ -4,16 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b847680c-1635-49b6-ab5a-0f41e00a5caf" name="Changes" comment="90% floorManagement, no css yet">
+    <list default="true" id="b847680c-1635-49b6-ab5a-0f41e00a5caf" name="Changes" comment="done the backend off the Area Management CRUD">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/author.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/authorAddController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/authorManagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/authorModifyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/authorAdd.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/authorManagement.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/authorModify.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/areaAddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/areaAddController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/areaManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/areaManagementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/areaModifyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/areaModifyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/floorAddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/floorAddController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/floorManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/floorManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/floorModifyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/floorModifyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/testManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/testManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/AreaManagement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/AreaManagement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/areaAdd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/areaAdd.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/areaModify.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/areaModify.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/floorAdd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/floorAdd.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/floorManagement2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/floorManagement2.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +34,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Class" />
         <option value="JavaFXApplication" />
+        <option value="Class" />
         <option value="FxmlFile" />
       </list>
     </option>
@@ -177,7 +186,8 @@
       <workItem from="1714406954223" duration="1842000" />
       <workItem from="1714439946533" duration="10749000" />
       <workItem from="1714534016879" duration="601000" />
-      <workItem from="1714547589715" duration="8750000" />
+      <workItem from="1714547589715" duration="13584000" />
+      <workItem from="1714620551654" duration="12177000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -211,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714377993009</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="done the backend off the Area Management CRUD">
+      <option name="closed" value="true" />
+      <created>1714558082045</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714558082046</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +250,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="test" />
     <MESSAGE value="90% floorManagement, no css yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="90% floorManagement, no css yet" />
+    <MESSAGE value="done the backend off the Area Management CRUD" />
+    <option name="LAST_COMMIT_MESSAGE" value="done the backend off the Area Management CRUD" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

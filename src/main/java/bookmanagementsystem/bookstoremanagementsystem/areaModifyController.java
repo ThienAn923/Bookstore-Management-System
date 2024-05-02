@@ -128,7 +128,7 @@ public class areaModifyController implements Initializable {
     }
     @FXML
     private void clean() {
-        areaIDField.setText(null);
+//        areaIDField.setText(null);
         areaNameField.setText(null);
     }
 
@@ -138,9 +138,7 @@ public class areaModifyController implements Initializable {
                 + "`AreaName`= ?,"
                 + "`FloorID`=?" +" WHERE AreaID = '"+areaID+"'";
     }
-//    void setUpdate(boolean b) {
-//        this.update = b;
-//    }
+
     void setValue(String id, String name, String floorID){
         areaID = id;
         this.FloorID = floorID;
@@ -153,6 +151,8 @@ public class areaModifyController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        areaIDField.setEditable(false); //set the ID field for it to not be able to modify
+
         getAllID(); // get all floors ID
         //pass all data from getAllFloorID to list box
         setUpChoicebox();

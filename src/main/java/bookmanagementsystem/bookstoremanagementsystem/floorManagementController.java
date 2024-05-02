@@ -37,7 +37,8 @@ public class floorManagementController implements Initializable {
     private Button floorAddButton;
     @FXML
     private Button refreshButton;
-
+    @FXML
+    private TextField findBox;
     @FXML
     private VBox floorContainer;
     @FXML
@@ -50,18 +51,21 @@ public class floorManagementController implements Initializable {
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
     floor floor = null ;
+
+    void warning(String content){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
     @FXML
-    public void refresh(){
-
-        //remove all children except the first one ( the first one is not a box contain floors infomation)
-        int numChildren = floorContainer.getChildren().size();
-        if (numChildren > 1) {
-            floorContainer.getChildren().remove(1, numChildren);
-        }
-
-        floors.clear(); //clear the list floors
+    void findFloor(){
+        String searchText = findBox.getText();
+        refreshData(searchText);
+        clearTable();
         getFloor();
     }
+
     @FXML
     private void addFloor(){
         try {
@@ -103,10 +107,43 @@ public class floorManagementController implements Initializable {
             Logger.getLogger(bookManagementController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    private void refreshData(String searchText) {
+        try {
+            floors.clear();
+            con = dbConnect.getConnect();
+            query = "SELECT * FROM `floor` WHERE `FloorID` LIKE ? OR `FloorName` LIKE ?";
 
+            preparedStatement = con.prepareStatement(query);
+            preparedStatement.setString(1, "%" + searchText + "%");
+            preparedStatement.setString(2,"%" + searchText + "%");
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                floors.add(new floor(
+                        resultSet.getString("FloorID"),
+                        resultSet.getString("FloorName")));
+            }
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(bookManagementController.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+    }
+    public void clearTable(){
+        //remove all children except the first one ( the first one is not a box contain areas infomation)
+        int numChildren = floorContainer.getChildren().size();
+        if (numChildren > 1) {
+            floorContainer.getChildren().remove(1, numChildren);
+        }
+    }
+    public void refresh(){
+        clearTable();
+        floors.clear(); //clear the list areas
+        refreshData();
+        getFloor();
+    }
     private void getFloor() {
         con = dbConnect.getConnect();
-        refreshData();
 
         for (floor floor : floors) {
             HBox floorBox = new HBox(); //Create container to hold the floors
@@ -140,6 +177,7 @@ public class floorManagementController implements Initializable {
                     refresh(); //refresh the table after delete
                 } catch (SQLException ex) {
                     Logger.getLogger(floorManagementController.class.getName()).log(Level.SEVERE, null, ex);
+                    warning("Không thể xóa bản, hãy chắc chắn tầng bạn đang xóa không chứa bất kỳ khu vực nào!");
                 }
             });
 
@@ -155,7 +193,6 @@ public class floorManagementController implements Initializable {
                     fac.setController(this);
 
                     if (fac != null) {
-                        fac.setUpdate(true);
                         fac.setValue(floor.getFloorID(), floor.getFloorName());
                     } else {
                         System.err.println("Controller is null.");
@@ -166,6 +203,7 @@ public class floorManagementController implements Initializable {
                     stage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
+                    warning("Không thể mở edit");
                 }
             });
 
@@ -186,6 +224,7 @@ public class floorManagementController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        refreshData();
         getFloor();
         //hide the scroll bar of the scroll pane
         floorsScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);

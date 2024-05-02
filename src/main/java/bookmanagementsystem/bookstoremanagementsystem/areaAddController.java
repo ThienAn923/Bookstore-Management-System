@@ -117,6 +117,7 @@ public class areaAddController implements Initializable {
                     areaIDField.setText(id);
                     break; // Exit loop if unused ID is found
                 }
+
             }
 
             //this part is only use as the final option after 100 try and still no usable ID found
@@ -187,6 +188,8 @@ public class areaAddController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
         getAllID(); // get all floors ID
         //pass all data from getAllFloorID to list box
         setUpChoicebox();

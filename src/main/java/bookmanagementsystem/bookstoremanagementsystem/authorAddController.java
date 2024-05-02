@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -16,31 +17,34 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class floorAddController implements Initializable {
+public class authorAddController implements Initializable {
     @FXML
-    private TextField floorIDField;
+    private TextField authorIDField;
     @FXML
-    private TextField floorNameField;
+    private TextField authorNameField;
     @FXML
-    private Button floorAddButton;
+    private TextArea authorDescriptionField;
+    @FXML
+    private Button authorAddButton;
     @FXML
     private Button cleanButton;
+
     String query = null;
     PreparedStatement preparedStatement = null ;
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
-    private boolean update;
-    String floorID;
-    private floorManagementController floorManagementController ;
-    public void setController(floorManagementController floorManagementController){
-        this.floorManagementController = floorManagementController;
+
+    String authorID;
+    private authorManagementController authorManagementController ;
+    public void setController(authorManagementController authorManagementController){
+        this.authorManagementController = authorManagementController;
     }
 
     @FXML
     private void autoIDGen(){
         try {
             con = dbConnect.getConnect();
-            query = "SELECT COUNT(*) FROM `floor`";
+            query = "SELECT COUNT(*) FROM `author`";
             preparedStatement = con.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
             resultSet.next();
@@ -51,16 +55,16 @@ public class floorAddController implements Initializable {
             boolean foundUnusedID = false;
             for(int i = 0; i < 100; i++){
                 count++;
-                id = "F000" + count;
+                id = "AU000" + count;
                 // Check if the ID is already in use
-                query = "SELECT * FROM `floor` WHERE `FloorID` = ?";
+                query = "SELECT * FROM `author` WHERE `authorID` = ?";
                 preparedStatement = con.prepareStatement(query);
                 preparedStatement.setString(1, id);
                 resultSet = preparedStatement.executeQuery();
 
                 if (!resultSet.next()) {
                     foundUnusedID = true;
-                    floorIDField.setText(id);
+                    authorIDField.setText(id);
                     break; // Exit loop if unused ID is found
                 }
 
@@ -79,7 +83,7 @@ public class floorAddController implements Initializable {
                     // Append the randomly selected character to the randomID string
                     randomID.append(CHARACTERS.charAt(randomIndex));
                 }
-                floorIDField.setText(String.valueOf(randomID));
+                authorIDField.setText(String.valueOf(randomID));
 
                 con.close();
             }
@@ -88,11 +92,13 @@ public class floorAddController implements Initializable {
         }
     }
     @FXML
-    private void addFloor() {
-        floorID = floorIDField.getText();
-        String floorName = floorNameField.getText();
+    private void addAuthor() {
+        authorID = authorIDField.getText();
+        String authorName = authorNameField.getText();
+        String authorDescription = authorDescriptionField.getText();
         con = dbConnect.getConnect();
-        if (floorID.isEmpty() || floorName.isEmpty()) {
+
+        if (authorID.isEmpty() || authorName.isEmpty() ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Có thể có khung còn trống");
@@ -102,29 +108,31 @@ public class floorAddController implements Initializable {
             insert();
             clean();
         }
-        floorManagementController.refresh(); //to refresh the floorManagement every time a floor is created
+        authorManagementController.refresh(); //to refresh the authorManagement every time a author is created
     }
     private void insert() {
         try {
 
             preparedStatement = con.prepareStatement(query);
-            preparedStatement.setString(1, floorIDField.getText());
-            preparedStatement.setString(2, floorNameField.getText());
+            preparedStatement.setString(1, authorIDField.getText());
+            preparedStatement.setString(2, authorNameField.getText());
+            preparedStatement.setString(3, authorDescriptionField.getText());
             preparedStatement.execute();
 
         } catch (SQLException ex) {
-            Logger.getLogger(floorAddController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(authorAddController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
     @FXML
     private void clean() {
-        floorIDField.setText(null);
-        floorNameField.setText(null);
+        authorIDField.setText(null);
+        authorNameField.setText(null);
+        authorDescriptionField.setText(null);
     }
 
     private void getQuery() {
-        query = "INSERT INTO `floor`( `FloorID`, `FloorName`) VALUES (?,?)";
+        query = "INSERT INTO `author`( `authorID`, `authorName`,`authorDescription`) VALUES (?,?,?)";
     }
 
 

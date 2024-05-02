@@ -28,7 +28,7 @@
                <children>
                   <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                      <children>
-                        <Label text="Nhập ID khu vực:">
+                        <Label text="ID khu vực:">
                            <VBox.margin>
                               <Insets bottom="5.0" left="20.0" />
                            </VBox.margin>
