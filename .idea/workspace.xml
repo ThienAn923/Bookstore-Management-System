@@ -4,22 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b847680c-1635-49b6-ab5a-0f41e00a5caf" name="Changes" comment="In this commit, i added CRUD for author management and area management. I also fixed some minor bug for floor management, area management. Add &quot;find&quot; feature for all three of these management pane.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/publisher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/publisherAddController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/publisherManagementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/publisherModifyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/publisherAdd.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/publisherManagement.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/publisherModify.fxml" afterDir="false" />
+    <list default="true" id="b847680c-1635-49b6-ab5a-0f41e00a5caf" name="Changes" comment="i added every time user hit enter on some field of the &quot;Add xxx pane&quot;, it will run the &quot;add function&quot;. Also completed publisher management">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/categoryAddController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/categoryManagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/categoryModifyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/categoryAdd.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/categoryManagement.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/categoryModify.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/testManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/testManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/areaAdd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/areaAdd.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/areaModify.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/areaModify.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/authorAdd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/authorAdd.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/authorModify.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/authorModify.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/floorAdd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/floorAdd.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/floorModify.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/floorModify.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/bookManagement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/bookManagement.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/publisherAdd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/publisherAdd.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="authorManagement" />
+        <entry key="$PROJECT_DIR$" value="publisherManagement" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,7 +68,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "publisherManagement",
+    "git-widget-placeholder": "categoryManagement",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "D:/CTU/Java/IntellijProject/BookStore/BookstoreManagementSystem/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/Libs/fontawesomefx-commons-9.1.2.jar",
     "list.type.of.created.stylesheet": "CSS",
@@ -183,7 +179,8 @@
       <workItem from="1714439946533" duration="10749000" />
       <workItem from="1714534016879" duration="601000" />
       <workItem from="1714547589715" duration="13584000" />
-      <workItem from="1714620551654" duration="16452000" />
+      <workItem from="1714620551654" duration="16487000" />
+      <workItem from="1714667224435" duration="3490000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -233,7 +230,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714662811862</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="i added every time user hit enter on some field of the &quot;Add xxx pane&quot;, it will run the &quot;add function&quot;. Also completed publisher management">
+      <option name="closed" value="true" />
+      <created>1714666974111</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714666974111</updated>
+    </task>
+    <task id="LOCAL-00008" summary="i added every time user hit enter on some field of the &quot;Add xxx pane&quot;, it will run the &quot;add function&quot;. Also completed publisher management">
+      <option name="closed" value="true" />
+      <created>1714666983779</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714666983779</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,7 +269,8 @@
     <MESSAGE value="90% floorManagement, no css yet" />
     <MESSAGE value="done the backend off the Area Management CRUD" />
     <MESSAGE value="In this commit, i added CRUD for author management and area management. I also fixed some minor bug for floor management, area management. Add &quot;find&quot; feature for all three of these management pane." />
-    <option name="LAST_COMMIT_MESSAGE" value="In this commit, i added CRUD for author management and area management. I also fixed some minor bug for floor management, area management. Add &quot;find&quot; feature for all three of these management pane." />
+    <MESSAGE value="i added every time user hit enter on some field of the &quot;Add xxx pane&quot;, it will run the &quot;add function&quot;. Also completed publisher management" />
+    <option name="LAST_COMMIT_MESSAGE" value="i added every time user hit enter on some field of the &quot;Add xxx pane&quot;, it will run the &quot;add function&quot;. Also completed publisher management" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
