@@ -2,19 +2,19 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.areaAddController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.authorAddController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
          <children>
-            <Label text="THÊM KHU VỰC">
+            <Label text="THÊM TÁC GIẢ">
                <font>
                   <Font name="System Bold" size="37.0" />
                </font>
@@ -25,14 +25,14 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Label text="Nhập ID khu vực:">
+                  <Label text="Nhập ID tác Giả">
                      <VBox.margin>
                         <Insets bottom="5.0" left="20.0" />
                      </VBox.margin>
                   </Label>
                   <HBox prefHeight="25.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="areaIDField" prefHeight="25.0" prefWidth="235.0">
+                        <TextField fx:id="authorIDField" prefHeight="25.0" prefWidth="235.0">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -47,7 +47,7 @@
             </VBox>
             <HBox alignment="CENTER" layoutY="225.0" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Button fx:id="areaAddButton" mnemonicParsing="false" onMouseClicked="#addArea" text="Thêm" />
+                  <Button fx:id="authorAddButton" mnemonicParsing="false" onMouseClicked="#addAuthor" text="Thêm" />
                   <Button fx:id="cleanButton" mnemonicParsing="false" onMouseClicked="#clean" text="Xóa">
                      <HBox.margin>
                         <Insets left="10.0" />
@@ -57,12 +57,12 @@
             </HBox>
             <VBox alignment="CENTER_LEFT" layoutY="75.0" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Label text="Nhập Tên khu vực:">
+                  <Label text="Nhập Tên Tác Giả:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="areaNameField">
+                  <TextField fx:id="authorNameField">
                      <VBox.margin>
                         <Insets left="20.0" right="300.0" />
                      </VBox.margin>
@@ -73,19 +73,20 @@
                <children>
                   <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                      <children>
-                        <Label text="Chọn tầng:">
+                        <Label text="Nhập Mô Tả Tác Giả:">
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets bottom="3.0" left="20.0" />
                            </VBox.margin>
                         </Label>
-                        <ChoiceBox fx:id="IDBox" prefHeight="25.0" prefWidth="235.0">
+                        <TextArea fx:id="authorDescriptionField" prefHeight="200.0" prefWidth="200.0">
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets left="20.0" right="230.0" />
                            </VBox.margin>
-                        </ChoiceBox>
+                        </TextArea>
                      </children>
                   </VBox>
-               </children></HBox>
+               </children>
+            </HBox>
          </children>
       </Pane>
    </children>

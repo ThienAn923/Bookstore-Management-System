@@ -34,18 +34,11 @@ import javafx.scene.layout.HBox;
 
 public class floorManagementController implements Initializable {
     @FXML
-    private TableView<floor> FloorTable;
-    @FXML
-    private TableColumn<floor, String> florIdCol;
-    @FXML
-    private TableColumn<floor, String> floorNameCol;
-    @FXML
-    private TableColumn<floor,String> Action;
-    @FXML
     private Button floorAddButton;
     @FXML
     private Button refreshButton;
-
+    @FXML
+    private TextField findBox;
     @FXML
     private VBox floorContainer;
     @FXML
@@ -58,18 +51,21 @@ public class floorManagementController implements Initializable {
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
     floor floor = null ;
+
+    void warning(String content){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
     @FXML
-    public void refresh(){
-
-        //remove all children except the first one ( the first one is not a box contain floors infomation)
-        int numChildren = floorContainer.getChildren().size();
-        if (numChildren > 1) {
-            floorContainer.getChildren().remove(1, numChildren);
-        }
-
-        floors.clear(); //clear the list floors
+    void findFloor(){
+        String searchText = findBox.getText();
+        refreshData(searchText);
+        clearTable();
         getFloor();
     }
+
     @FXML
     private void addFloor(){
         try {
@@ -105,126 +101,61 @@ public class floorManagementController implements Initializable {
                 floors.add(new floor(
                         resultSet.getString("FloorID"),
                         resultSet.getString("FloorName")));
-//                FloorTable.setItems((ObservableList<bookmanagementsystem.bookstoremanagementsystem.floor>) floors);
             }
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(bookManagementController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    private void refreshData(String searchText) {
+        try {
+            floors.clear();
+            con = dbConnect.getConnect();
+            query = "SELECT * FROM `floor` WHERE `FloorID` LIKE ? OR `FloorName` LIKE ?";
 
-//    private void getFloor() {
-//
-//        con = dbConnect.getConnect();
-//        refreshTable();
-//
-//        florIdCol.setCellValueFactory(new PropertyValueFactory<>("FloorID"));
-//        floorNameCol.setCellValueFactory(new PropertyValueFactory<>("FloorName"));
-//
-//        Callback<TableColumn<floor, String>, TableCell<floor, String>> cellFoctory = (TableColumn<floor, String> param) -> {
-//            // make cell containing buttons
-//            final TableCell<floor, String> cell = new TableCell<floor, String>() {
-//                @Override
-//                public void updateItem(String item, boolean empty) {
-//                    super.updateItem(item, empty);
-//                    //that cell created only on non-empty rows
-//                    if (empty) {
-//                        setGraphic(null);
-//                        setText(null);
-//
-//                    } else {
-//
-//                        FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
-//                        FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
-//
-//                        deleteIcon.setStyle(
-//                                " -fx-cursor: hand ;"
-//                                        + "-glyph-size:28px;"
-//                                        + "-fx-fill:#ff1744;"
-//                        );
-//                        editIcon.setStyle(
-//                                " -fx-cursor: hand ;"
-//                                        + "-glyph-size:28px;"
-//                                        + "-fx-fill:#00E676;"
-//                        );
-//                        deleteIcon.setOnMouseClicked((MouseEvent event) -> {
-//                            try {
-//                                floor = FloorTable.getSelectionModel().getSelectedItem();
-//                                query = "DELETE FROM `floor` WHERE FloorID  ='"+floor.getFloorID() +"'";
-//                                con = dbConnect.getConnect();
-//                                preparedStatement = con.prepareStatement(query);
-//                                preparedStatement.execute();
-//                                refreshTable();
-//
-//                            } catch (SQLException ex) {
-//                                Logger.getLogger(floorManagementController.class.getName()).log(Level.SEVERE, null, ex);
-//                            }
-//
-//
-//
-//
-//
-//                        });
-//                        editIcon.setOnMouseClicked((MouseEvent event) -> {
-//
-//                            floor = FloorTable.getSelectionModel().getSelectedItem();
-//
-//
-//                            try {
-//                                FXMLLoader loader = new FXMLLoader(getClass().getResource("floorModify.fxml"));
-//                                Parent root = loader.load();
-//                                floorModifyController fac = loader.getController();
-//                                if (fac != null) {
-//                                    fac.setUpdate(true);
-//                                    fac.setValue(floor.getFloorID(), floor.getFloorName());
-//                                } else {
-//                                    System.err.println("Controller is null.");
-//                                }
-//                                Stage stage = new Stage();
-//                                stage.setTitle("Modify Floor");
-//                                stage.setScene(new Scene(root));
-//                                stage.show();
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
-//
-//                        });
-//
-//                        HBox managebtn = new HBox(editIcon, deleteIcon);
-//                        managebtn.setStyle("-fx-alignment:center");
-//                        HBox.setMargin(deleteIcon, new Insets(2, 2, 0, 3));
-//                        HBox.setMargin(editIcon, new Insets(2, 3, 0, 2));
-//
-//                        setGraphic(managebtn);
-//
-//                        setText(null);
-//
-//                    }
-//                }
-//
-//            };
-//
-//            return cell;
-//        };
-//        Action.setCellFactory(cellFoctory);
-//        FloorTable.setItems(floors);
-//    }
+            preparedStatement = con.prepareStatement(query);
+            preparedStatement.setString(1, "%" + searchText + "%");
+            preparedStatement.setString(2,"%" + searchText + "%");
+            resultSet = preparedStatement.executeQuery();
 
+            while (resultSet.next()){
+                floors.add(new floor(
+                        resultSet.getString("FloorID"),
+                        resultSet.getString("FloorName")));
+            }
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(bookManagementController.class.getName()).log(Level.SEVERE, null, ex);
 
-
-
+        }
+    }
+    public void clearTable(){
+        //remove all children except the first one ( the first one is not a box contain areas infomation)
+        int numChildren = floorContainer.getChildren().size();
+        if (numChildren > 1) {
+            floorContainer.getChildren().remove(1, numChildren);
+        }
+    }
+    public void refresh(){
+        clearTable();
+        floors.clear(); //clear the list areas
+        refreshData();
+        getFloor();
+    }
     private void getFloor() {
         con = dbConnect.getConnect();
-        refreshData();
 
         for (floor floor : floors) {
             HBox floorBox = new HBox(); //Create container to hold the floors
+            floorBox.setStyle("-fx-border-color: rgb(128,128,128); " +
+                    "-fx-border-width: 0 1px 1px 1px; " +
+                    "-fx-border-style: solid;");
 
             floorBox.setPrefHeight(36);
             floorBox.setAlignment(Pos.CENTER_LEFT); //set the position of component inside the containner
 
-            Label floorIdLabel = new Label("Floor ID: " + floor.getFloorID());
-            Label floorNameLabel = new Label("Floor Name: " + floor.getFloorName());
+            Label floorIdLabel = new Label(floor.getFloorID());
+            Label floorNameLabel = new Label(floor.getFloorName());
 
             floorIdLabel.setMinWidth(370);
             floorNameLabel.setMinWidth(510);
@@ -246,6 +177,7 @@ public class floorManagementController implements Initializable {
                     refresh(); //refresh the table after delete
                 } catch (SQLException ex) {
                     Logger.getLogger(floorManagementController.class.getName()).log(Level.SEVERE, null, ex);
+                    warning("Không thể xóa bản, hãy chắc chắn tầng bạn đang xóa không chứa bất kỳ khu vực nào!");
                 }
             });
 
@@ -261,7 +193,6 @@ public class floorManagementController implements Initializable {
                     fac.setController(this);
 
                     if (fac != null) {
-                        fac.setUpdate(true);
                         fac.setValue(floor.getFloorID(), floor.getFloorName());
                     } else {
                         System.err.println("Controller is null.");
@@ -272,6 +203,7 @@ public class floorManagementController implements Initializable {
                     stage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
+                    warning("Không thể mở edit");
                 }
             });
 
@@ -292,6 +224,7 @@ public class floorManagementController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        refreshData();
         getFloor();
         //hide the scroll bar of the scroll pane
         floorsScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);

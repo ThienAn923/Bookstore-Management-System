@@ -30,8 +30,14 @@ public class floorModifyController implements Initializable {
     ResultSet resultSet = null ;
     private boolean update = true;
     String floorID;
-    private floorManagementController floorManagementController;
 
+    void warning(String content){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+    private floorManagementController floorManagementController;
     public void setController(floorManagementController floorManagementController){
         this.floorManagementController = floorManagementController;
     }
@@ -65,40 +71,31 @@ public class floorModifyController implements Initializable {
 
         } catch (SQLException ex) {
             Logger.getLogger(floorAddController.class.getName()).log(Level.SEVERE, null, ex);
+            warning("");
         }
 
     }
     @FXML
     private void clean() {
-        floorIDField.setText(null);
+//        floorIDField.setText(null);
         floorNameField.setText(null);
     }
 
     private void getQuery() {
 
-        if (!update) {
-
-            query = "INSERT INTO `floor`( `FloorID`, `FloorName`) VALUES (?,?)";
-
-        }else{
-            query = "UPDATE `floor` SET "
-                    + "`FloorID` = ?,"
-                    + "`FloorName` = ? WHERE `FloorID` = ?";
-        }
+        query = "UPDATE `floor` SET "
+                + "`FloorID` = ?,"
+                + "`FloorName` = ? WHERE `FloorID` = ?";
 
     }
     void setValue(String id, String name){
         floorID = id;
         floorIDField.setText(id);
         floorNameField.setText(name);
-
-    }
-    void setUpdate(boolean b) {
-        this.update = b;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        floorIDField.setEditable(false);
     }
 }

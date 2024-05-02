@@ -10,28 +10,28 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.floorManagementController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.authorManagementController">
    <children>
       <Pane prefHeight="70.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee;">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee; -fx-border-radius: 500px;">
+            <HBox alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee; -fx-border-radius: 500px;">
                <children>
-                  <Label text="QUẢN LÝ TẦNG">
+                  <Label fx:id="testLabel" text="QUẢN LÝ TÁC GIẢ">
                      <HBox.margin>
-                        <Insets left="30.0" />
+                        <Insets left="30.0" right="27.0" />
                      </HBox.margin>
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="805.0" style="-fx-background-color: #eeeeee; -fx-border-width: 2 2 2 2;">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="750.0" style="-fx-background-color: #eeeeee; -fx-border-width: 2 2 2 2;">
                      <children>
-                        <VBox alignment="CENTER_LEFT" prefWidth="805.0">
+                        <VBox alignment="CENTER_LEFT" prefWidth="750.0">
                            <children>
                               <HBox alignment="CENTER_RIGHT">
                                  <children>
                                     <Button fx:id="refreshButton" mnemonicParsing="false" onMouseClicked="#refresh" text="Làm Mới" />
-                                    <Button fx:id="floorAddButton" mnemonicParsing="false" onMouseClicked="#addFloor" prefWidth="90.6" text="Thêm Tầng">
+                                    <Button fx:id="AuthorAddButton" mnemonicParsing="false" onMouseClicked="#addAuthor" prefWidth="90.6" text="Thêm Tác Giả">
                                        <HBox.margin>
                                           <Insets left="20.0" right="3.0" />
                                        </HBox.margin>
@@ -40,8 +40,8 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT">
                                  <children>
-                                    <Label text="Tìm kiếm tầng: " />
-                                    <TextField fx:id="findBox" onKeyReleased="#findFloor" prefWidth="172.0">
+                                    <Label text="Tìm Kiếm Tác Giả: " />
+                                    <TextField fx:id="findBox" onKeyReleased="#findAuthor" prefWidth="172.0">
                                        <HBox.margin>
                                           <Insets right="3.0" top="5.0" />
                                        </HBox.margin>
@@ -56,27 +56,35 @@
             </HBox>
          </children>
       </Pane>
-      <ScrollPane fx:id="floorsScrollPane" layoutY="70.0" prefHeight="480.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee;">
+      <ScrollPane fx:id="authorsScrollPane" layoutY="70.0" prefHeight="480.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee;">
          <content>
-            <VBox fx:id="floorContainer" prefHeight="1000.0" prefWidth="997.0" style="-fx-background-color: white;">
+            <VBox fx:id="authorContainer" prefHeight="1000.0" prefWidth="997.0" style="-fx-background-color: white;">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="998.0" style="-fx-border-width: 1 1 1 1; -fx-border-color: gray;">
                      <children>
-                        <Label prefWidth="370.0" text="ID tầng">
+                        <Label prefWidth="185.0" text="ID Tác Giả">
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
                            <font>
                               <Font name="System Bold" size="12.0" />
-                           </font></Label>
-                        <Label prefWidth="510.0" text="Tên tầng">
+                           </font>
+                        </Label>
+                        <Label prefWidth="185.0" text="Tên Tác Giả">
                            <font>
                               <Font name="System Bold" size="12.0" />
-                           </font></Label>
+                           </font>
+                        </Label>
+                        <Label prefWidth="510.0" text="Mô Tả Tác Giả">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
                         <Label text="Tác vụ">
                            <font>
                               <Font name="System Bold" size="12.0" />
-                           </font></Label>
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
                </children>

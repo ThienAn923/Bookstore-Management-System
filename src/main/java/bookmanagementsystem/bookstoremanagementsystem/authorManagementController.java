@@ -12,12 +12,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,32 +22,31 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class areaManagementController implements Initializable {
-
+public class authorManagementController implements Initializable {
     @FXML
-    private Button addAreaButton;
+    private Button AuthorAddButton;
     @FXML
     private Button refreshButton;
     @FXML
-    private VBox areasContainer;
-    @FXML
-    private ScrollPane areasScrollPane;
+    private Label testLabel;
     @FXML
     private TextField findBox;
+    @FXML
+    private VBox authorContainer;
+    @FXML
+    private ScrollPane authorsScrollPane;
 
-    ObservableList<area> areas = FXCollections.observableArrayList();
+    ObservableList<author> authors = FXCollections.observableArrayList();
+
     String query = null;
     PreparedStatement preparedStatement = null ;
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
-    area area = null ;
-    Map<String, String> floorsMap = new HashMap<>();
+    author author = null ;
 
     void warning(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -59,69 +55,29 @@ public class areaManagementController implements Initializable {
         alert.showAndWait();
     }
     @FXML
-    void findArea(){
+    void findAuthor(){
         String searchText = findBox.getText();
         refreshData(searchText);
         clearTable();
-        getArea();
-    }
-
-    void getAllFloor(){
-        try {
-            //Database stuff
-            con = dbConnect.getConnect();
-            query = "SELECT FloorID, FloorName FROM `floor`";
-            preparedStatement = con.prepareStatement(query);
-            resultSet = preparedStatement.executeQuery(query);
-
-            while (resultSet.next()){
-                String floorID = resultSet.getString("FloorID");
-                String floorName =resultSet.getString("FloorName");
-
-                //add to map table and floor list
-                floorsMap.put(floorID, floorName);
-            }
-            con.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(bookManagementController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    String getFloorName(String FloorID){
-        String FloorName = floorsMap.get(FloorID);
-        return FloorName;
-    }
-
-    public void clearTable(){
-        //remove all children except the first one ( the first one is not a box contain areas infomation)
-        int numChildren = areasContainer.getChildren().size();
-        if (numChildren > 1) {
-            areasContainer.getChildren().remove(1, numChildren);
-        }
-    }
-    public void refresh(){
-        clearTable();
-        areas.clear(); //clear the list areas
-        refreshData();
-        getArea();
+        getAuthor();
     }
 
     @FXML
-    private void addArea(){
+    private void addAuthor(){
         try {
             FXMLLoader loader = new FXMLLoader ();
-            loader.setLocation(getClass().getResource("areaAdd.fxml"));
+            loader.setLocation(getClass().getResource("authorAdd.fxml"));
             Parent root = (Parent) loader.load();
 
-            //This part of code is to set the controller for areaAddcontroller as this controller
+            //This part of code is to set the controller for authorAddcontroller as this controller
             //so it can call the refresh function from this controller
             //this, is black magic, if i was at 17th centuary, i would be burned alive
-            areaAddController areaAddController = loader.getController();
+            authorAddController authorAddController = loader.getController();
             // Pass a reference to the Scene A controller to Scene B
-            areaAddController.setController(this);
+            authorAddController.setController(this);
 
             Stage stage = new Stage();
-            stage.setTitle("Thêm Khu Vực");
+            stage.setTitle("Thêm tác giả");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
@@ -131,17 +87,17 @@ public class areaManagementController implements Initializable {
 
     private void refreshData() {
         try {
-            areas.clear();
+            //Database stuff
             con = dbConnect.getConnect();
-            query = "SELECT * FROM `area`";
+            query = "SELECT * FROM `author`";
             preparedStatement = con.prepareStatement(query);
             resultSet = preparedStatement.executeQuery(query);
 
             while (resultSet.next()){
-                areas.add(new area(
-                        resultSet.getString("AreaID"),
-                        resultSet.getString("AreaName"),
-                        resultSet.getString("FloorID")));
+                authors.add(new author(
+                        resultSet.getString("authorID"),
+                        resultSet.getString("authorName"),
+                        resultSet.getString("authorDescription")));
             }
             con.close();
         } catch (SQLException ex) {
@@ -150,9 +106,9 @@ public class areaManagementController implements Initializable {
     }
     private void refreshData(String searchText) {
         try {
-            areas.clear();
+            authors.clear();
             con = dbConnect.getConnect();
-            query = "SELECT * FROM `area` WHERE `AreaID` LIKE ? OR `AreaName` LIKE ?";
+            query = "SELECT * FROM `author` WHERE `authorID` LIKE ? OR `authorName` LIKE ?";
 
             preparedStatement = con.prepareStatement(query);
             preparedStatement.setString(1, "%" + searchText + "%");
@@ -160,10 +116,10 @@ public class areaManagementController implements Initializable {
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                areas.add(new area(
-                        resultSet.getString("AreaID"),
-                        resultSet.getString("AreaName"),
-                        resultSet.getString("FloorID")));
+                authors.add(new author(
+                        resultSet.getString("authorID"),
+                        resultSet.getString("authorName"),
+                        resultSet.getString("authorDescription")));
             }
             con.close();
         } catch (SQLException ex) {
@@ -171,28 +127,44 @@ public class areaManagementController implements Initializable {
 
         }
     }
-
-    private void getArea() {
+    public void clearTable(){
+        //remove all children except the first one ( the first one is not a box contain areas infomation)
+        int numChildren = authorContainer.getChildren().size();
+        if (numChildren > 1) {
+            authorContainer.getChildren().remove(1, numChildren);
+        }
+    }
+    public void refresh(){
+        clearTable();
+        authors.clear(); //clear the list authors
+        refreshData();
+        getAuthor();
+    }
+    private void getAuthor() {
         con = dbConnect.getConnect();
 
-        for (area area : areas) {
-            HBox areaBox = new HBox(); //Create container to hold the areas
-            areaBox.setStyle("-fx-border-color: rgb(128,128,128); " +
+        for (author author : authors) {
+            HBox authorBox = new HBox(); //Create container to hold the authors
+            authorBox.setStyle("-fx-border-color: rgb(128,128,128); " +
                     "-fx-border-width: 0 1px 1px 1px; " +
                     "-fx-border-style: solid;");
 
-            areaBox.setPrefHeight(36);
-            areaBox.setAlignment(Pos.CENTER_LEFT); //set the position of component inside the containner
+            authorBox.setPrefHeight(36);
+            authorBox.setAlignment(Pos.CENTER_LEFT); //set the position of component inside the containner
 
-            Label areaIdLabel = new Label(area.getAreaID());
-            Label areaNameLabel = new Label(area.getAreaName());
-            Label FloorName = new Label(getFloorName(area.getFloorID()));
+            Label authorIdLabel = new Label(author.getAuthorID());
+            Label authorNameLabel = new Label(author.getAuthorName());
+            Label authorDescriptionLabel;
+            //if there are no description about this author, show "Không có mô tả" ("No description")
+            if (!author.getAuthorDescription().isEmpty())
+                authorDescriptionLabel = new Label(author.getAuthorDescription());
+            else authorDescriptionLabel = new Label("(Không có mô tả!)");
 
-            areaIdLabel.setMinWidth(185);
-            FloorName.setMinWidth(185);
-            areaNameLabel.setMinWidth(510);
+            authorIdLabel.setMinWidth(185);
+            authorNameLabel.setMinWidth(185);
+            authorDescriptionLabel.setMinWidth(510);
 
-            areaBox.setMargin(areaIdLabel, new Insets(0,0,0,30));
+            authorBox.setMargin(authorIdLabel, new Insets(0,0,0,30));
 
             FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
             FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
@@ -202,64 +174,64 @@ public class areaManagementController implements Initializable {
 
             deleteIcon.setOnMouseClicked(event -> {
                 try {
-                    query = "DELETE FROM `area` WHERE AreaID = '" + area.getAreaID() + "'";
+                    query = "DELETE FROM `author` WHERE authorID = '" + author.getAuthorID() + "'";
                     con = dbConnect.getConnect();
                     preparedStatement = con.prepareStatement(query);
                     preparedStatement.execute();
                     refreshData();
                     refresh(); //refresh the table after delete
                 } catch (SQLException ex) {
-                    Logger.getLogger(areaManagementController.class.getName()).log(Level.SEVERE, null, ex);
-                    warning("Không thể xóa khu vực. Hãy chắc chắc không có kệ nằm trong khu vực này.");
+                    Logger.getLogger(authorManagementController.class.getName()).log(Level.SEVERE, null, ex);
+                    warning("Không thể xóa tác giả, hãy chắc chắn tác giả bạn đang xóa không còn liên kết với sách nào");
                 }
             });
 
             editIcon.setOnMouseClicked(event -> {
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("areaModify.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("authorModify.fxml"));
                     Parent root = loader.load();
-                    //This part of code is to set the controller for Addcontroller as this controller
+                    //This part of code is to set the controller for authorAddcontroller as this controller
                     //so it can call the refresh function from this controller
                     //this, is black magic, if i was at 17th centuary, i would be burned alive
-                    areaModifyController fac = loader.getController();
+                    authorModifyController fac = loader.getController();
                     // Pass a reference to the Scene A controller to Scene B
                     fac.setController(this);
 
                     if (fac != null) {
-//                        fac.setUpdate(true);
-                        fac.setValue(area.getAreaID(), area.getAreaName(), area.getFloorID());
+                        fac.setValue(author.getAuthorID(), author.getAuthorName(), author.getAuthorDescription());
                     } else {
                         System.err.println("Controller is null.");
                     }
                     Stage stage = new Stage();
-                    stage.setTitle("Modify Area");
+                    stage.setTitle("Chỉnh sửa tác giả");
                     stage.setScene(new Scene(root));
                     stage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
+                    warning("Không thể mở edit");
                 }
             });
 
             HBox buttonBox = new HBox(editIcon, deleteIcon);
             buttonBox.setAlignment(Pos.CENTER_RIGHT);
-//            buttonBox.setStyle("-fx-alignment:center");
             buttonBox.setSpacing(10);
 
-            areaBox.getChildren().addAll(areaIdLabel, FloorName, areaNameLabel, buttonBox);
+            authorBox.getChildren().addAll(authorIdLabel, authorNameLabel, authorDescriptionLabel, buttonBox);
 
-            // Add the HBox for each area to your layout
-            areasContainer.getChildren().add(areaBox);
+            // Add the HBox for each author to your layout
+            authorContainer.getChildren().add(authorBox);
         }
+
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        getAllFloor(); //get all the Floor and put to HashMap so i don't have to search for FloorName in database every time
-        refreshData(); //get areas data
-        getArea(); //Create areas hbox
-
-        //Hide the scroll bars
-        areasScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        areasScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        refreshData();
+        getAuthor();
+        //hide the scroll bar of the scroll pane
+        authorsScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        authorsScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
     }
 }
+
