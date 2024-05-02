@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.floorModifyController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.publisherAddController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
          <children>
-            <Label text="CHỈNH SỬA TẦNG">
+            <Label text="THÊM NHÀ XUẤT BẢN">
                <font>
                   <Font name="System Bold" size="37.0" />
                </font>
@@ -24,21 +24,25 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Label text="ID tầng:">
+                  <Label text="Nhập ID Nhà Xuất Bản::">
                      <VBox.margin>
                         <Insets bottom="5.0" left="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="floorIDField">
+                  <HBox prefHeight="25.0" prefWidth="600.0">
                      <VBox.margin>
-                        <Insets left="20.0" right="400.0" />
+                        <Insets left="20.0" />
                      </VBox.margin>
-                  </TextField>
+                     <children>
+                        <TextField fx:id="publisherIDField" prefWidth="235.0" />
+                        <Button fx:id="autoButton" maxWidth="45.0" mnemonicParsing="false" onAction="#autoIDGen" text="Auto" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
             <HBox alignment="CENTER" layoutY="200.0" prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Button fx:id="floorAddButton" mnemonicParsing="false" onMouseClicked="#modifyFloor" text="Chỉnh sửa" />
+                  <Button fx:id="publisherAddButton" mnemonicParsing="false" onMouseClicked="#addPublisher" text="Thêm" />
                   <Button fx:id="cleanButton" mnemonicParsing="false" onMouseClicked="#clean" text="Xóa">
                      <HBox.margin>
                         <Insets left="10.0" />
@@ -48,12 +52,12 @@
             </HBox>
             <VBox alignment="CENTER_LEFT" layoutY="100.0" prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Label text="Nhập Tên Tầng:">
+                  <Label text="Nhập Tên Nhà Xuất Bản">
                      <VBox.margin>
                         <Insets bottom="5.0" left="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="floorNameField" onAction="#modifyFloor">
+                  <TextField fx:id="publisherNameField" onAction="#addPublisher">
                      <VBox.margin>
                         <Insets left="20.0" right="300.0" />
                      </VBox.margin>
