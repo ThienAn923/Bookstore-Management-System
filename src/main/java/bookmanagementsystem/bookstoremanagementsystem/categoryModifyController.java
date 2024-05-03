@@ -31,12 +31,18 @@ public class categoryModifyController implements Initializable {
     private boolean update = true;
     String categoryID;
 
+    String searchText;
+    void setSearchText(String searchText){
+        this.searchText = searchText;
+    }
+
     void warning(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
     }
+
     private categoryManagementController categoryManagementController;
     public void setController(categoryManagementController categoryManagementController){
         this.categoryManagementController = categoryManagementController;
@@ -56,7 +62,7 @@ public class categoryModifyController implements Initializable {
             insert();
             clean();
         }
-        categoryManagementController.refresh(); //refresh the categoryManagement scene after modify
+        categoryManagementController.refresh(searchText); //refresh the categoryManagement scene after modify
     }
     private void insert() {
         try {

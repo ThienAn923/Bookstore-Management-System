@@ -47,7 +47,7 @@ public class authorManagementController implements Initializable {
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
     author author = null ;
-
+    String searchText;
     void warning(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);
@@ -56,7 +56,7 @@ public class authorManagementController implements Initializable {
     }
     @FXML
     void findAuthor(){
-        String searchText = findBox.getText();
+        searchText = findBox.getText();
         refreshData(searchText);
         clearTable();
         getAuthor();
@@ -75,6 +75,7 @@ public class authorManagementController implements Initializable {
             authorAddController authorAddController = loader.getController();
             // Pass a reference to the Scene A controller to Scene B
             authorAddController.setController(this);
+            authorAddController.setSearchText(searchText);
 
             Stage stage = new Stage();
             stage.setTitle("Thêm tác giả");
@@ -140,6 +141,12 @@ public class authorManagementController implements Initializable {
         refreshData();
         getAuthor();
     }
+    public void refresh(String searchText){
+        clearTable();
+        authors.clear(); //clear the list authors
+        refreshData(searchText);
+        getAuthor();
+    }
     private void getAuthor() {
         con = dbConnect.getConnect();
 
@@ -196,6 +203,7 @@ public class authorManagementController implements Initializable {
                     authorModifyController fac = loader.getController();
                     // Pass a reference to the Scene A controller to Scene B
                     fac.setController(this);
+                    fac.setSearchText(searchText);
 
                     if (fac != null) {
                         fac.setValue(author.getAuthorID(), author.getAuthorName(), author.getAuthorDescription());

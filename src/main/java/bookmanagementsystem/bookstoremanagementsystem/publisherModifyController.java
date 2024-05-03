@@ -32,6 +32,11 @@ public class publisherModifyController implements Initializable {
     private boolean update = true;
     String publisherID;
 
+    String searchText;
+    void setSearchText(String searchText){
+        this.searchText = searchText;
+    }
+
     void warning(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);
@@ -57,7 +62,7 @@ public class publisherModifyController implements Initializable {
             insert();
             clean();
         }
-        publisherManagementController.refresh(); //refresh the publisherManagement scene after modify
+        publisherManagementController.refresh(searchText); //refresh the publisherManagement scene after modify
     }
     private void insert() {
         try {

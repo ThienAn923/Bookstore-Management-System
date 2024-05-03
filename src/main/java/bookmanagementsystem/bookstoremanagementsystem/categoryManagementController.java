@@ -44,7 +44,9 @@ public class categoryManagementController implements Initializable {
     PreparedStatement preparedStatement = null ;
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
+
     category category = null ;
+    String searchText;
 
     void warning(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -54,7 +56,7 @@ public class categoryManagementController implements Initializable {
     }
     @FXML
     void findCategory(){
-        String searchText = findBox.getText();
+        searchText = findBox.getText();
         refreshData(searchText);
         clearTable();
         getCategory();
@@ -73,6 +75,7 @@ public class categoryManagementController implements Initializable {
             categoryAddController categoryAddController = loader.getController();
             // Pass a reference to the Scene A controller to Scene B
             categoryAddController.setController(this);
+            categoryAddController.setSearchText(searchText);
 
             Stage stage = new Stage();
             stage.setTitle("Thêm Nhà Xuất Bản");
@@ -136,6 +139,12 @@ public class categoryManagementController implements Initializable {
         refreshData();
         getCategory();
     }
+    public void refresh(String searchText){
+        clearTable();
+        categories.clear(); //clear the list areas
+        refreshData(searchText);
+        getCategory();
+    }
     private void getCategory() {
         con = dbConnect.getConnect();
 
@@ -185,6 +194,7 @@ public class categoryManagementController implements Initializable {
                     categoryModifyController fac = loader.getController();
                     // Pass a reference to the Scene A controller to Scene B
                     fac.setController(this);
+                    fac.setSearchText(searchText);
 
                     if (fac != null) {
                         fac.setValue(category.getCategoryID(), category.getCategoryName());

@@ -32,6 +32,12 @@ public class categoryAddController implements Initializable {
     ResultSet resultSet = null ;
 
     String categoryID;
+
+    String searchText;
+    void setSearchText(String searchText){
+        this.searchText = searchText;
+    }
+
     private categoryManagementController categoryManagementController ;
     public void setController(categoryManagementController categoryManagementController){
         this.categoryManagementController = categoryManagementController;
@@ -103,7 +109,7 @@ public class categoryAddController implements Initializable {
             insert();
             clean();
         }
-        categoryManagementController.refresh(); //to refresh the categoryManagement every time a category is created
+        categoryManagementController.refresh(searchText); //to refresh the categoryManagement every time a category is created
     }
     private void insert() {
         try {

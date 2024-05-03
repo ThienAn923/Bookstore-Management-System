@@ -2,9 +2,7 @@ package bookmanagementsystem.bookstoremanagementsystem;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.security.SecureRandom;
@@ -16,38 +14,62 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class publisherAddController implements Initializable {
+public class customerAddController implements Initializable {
     @FXML
-    private TextField publisherIDField;
+    private ToggleGroup customerGenderGroup;
     @FXML
-    private TextField publisherNameField;
+    private TextField customerIDField;
     @FXML
-    private Button publisherAddButton;
+    private TextField customerNameField;
+    @FXML
+    private TextField customerPhoneNumberField;
+    @FXML
+    private TextField customerPointField;
+    @FXML
+    private RadioButton maleRbutton, femaleRbutton;
+    @FXML
+    private Button customerAddButton;
     @FXML
     private Button cleanButton;
+//    @FXML
+//    private ToggleGroup customerGender;
 
     String query = null;
     PreparedStatement preparedStatement = null ;
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
 
-    String publisherID;
+    String customerID;
+    boolean customerGender = true;
+    int customerPoint = 0;
+    String searchText = null;
 
-    String searchText;
+    void warning(String warning){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText(warning);
+        alert.showAndWait();
+    }
+    // this get the search text from the management UI then send it to here. Then to later use it to refresh page.
     void setSearchText(String searchText){
         this.searchText = searchText;
     }
+    private customerManagementController customerManagementController ;
+    public void setController(customerManagementController customerManagementController){
+        this.customerManagementController = customerManagementController;
+    }
 
-    private publisherManagementController publisherManagementController ;
-    public void setController(publisherManagementController publisherManagementController){
-        this.publisherManagementController = publisherManagementController;
+    //if male radio button is selected, return true, else, false
+    @FXML
+    void setGender(){
+        customerGender = maleRbutton.isSelected();
     }
 
     @FXML
     private void autoIDGen(){
         try {
             con = dbConnect.getConnect();
-            query = "SELECT COUNT(*) FROM `publisher`";
+            query = "SELECT COUNT(*) FROM `customer`";
             preparedStatement = con.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
             resultSet.next();
@@ -58,16 +80,16 @@ public class publisherAddController implements Initializable {
             boolean foundUnusedID = false;
             for(int i = 0; i < 100; i++){
                 count++;
-                id = "P000" + count;
+                id = "C000" + count;
                 // Check if the ID is already in use
-                query = "SELECT * FROM `publisher` WHERE `publisherID` = ?";
+                query = "SELECT * FROM `customer` WHERE `customerID` = ?";
                 preparedStatement = con.prepareStatement(query);
                 preparedStatement.setString(1, id);
                 resultSet = preparedStatement.executeQuery();
 
                 if (!resultSet.next()) {
                     foundUnusedID = true;
-                    publisherIDField.setText(id);
+                    customerIDField.setText(id);
                     break; // Exit loop if unused ID is found
                 }
 
@@ -86,7 +108,7 @@ public class publisherAddController implements Initializable {
                     // Append the randomly selected character to the randomID string
                     randomID.append(CHARACTERS.charAt(randomIndex));
                 }
-                publisherIDField.setText(String.valueOf(randomID));
+                customerIDField.setText(String.valueOf(randomID));
 
                 con.close();
             }
@@ -95,47 +117,59 @@ public class publisherAddController implements Initializable {
         }
     }
     @FXML
-    private void addPublisher() {
-        publisherID = publisherIDField.getText();
-        String publisherName = publisherNameField.getText();
+    private void addCustomer() {
+        customerID = customerIDField.getText();
+        String customerName = customerNameField.getText();
+        String customerPhoneNumber = customerPhoneNumberField.getText();
+        try{
+            customerPoint = Integer.parseInt(customerPointField.getText());}
+        catch(Exception e){
+            warning("Khung điểm chỉ được nhập số.");
+            return;
+        }
+
         con = dbConnect.getConnect();
-        if (publisherID.isEmpty() || publisherName.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Có thể có khung còn trống");
-            alert.showAndWait();
+        if (customerID.isEmpty() || customerName.isEmpty() || customerPhoneNumber.isEmpty() || customerPointField.getText().isEmpty() ) {
+            warning("Có thể có khung còn trống");
         } else {
             getQuery();
             insert();
             clean();
         }
-        publisherManagementController.refresh(searchText); //to refresh the publisherManagement every time a publisher is created
+        customerManagementController.refresh(searchText); //to refresh the customerManagement every time a customer is created
     }
     private void insert() {
         try {
 
             preparedStatement = con.prepareStatement(query);
-            preparedStatement.setString(1, publisherIDField.getText());
-            preparedStatement.setString(2, publisherNameField.getText());
+            preparedStatement.setString(1, customerIDField.getText());
+            preparedStatement.setString(2, customerNameField.getText());
+            preparedStatement.setString(3, customerPhoneNumberField.getText());
+            preparedStatement.setInt(4, customerPoint);
+            preparedStatement.setBoolean(5, customerGender);
             preparedStatement.execute();
 
         } catch (SQLException ex) {
-            Logger.getLogger(publisherAddController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(customerAddController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
     @FXML
     private void clean() {
-        publisherIDField.setText(null);
-        publisherNameField.setText(null);
+        customerIDField.setText(null);
+        customerNameField.setText(null);
+        customerPhoneNumberField.setText(null);
+        customerPointField.setText(null);
     }
 
     private void getQuery() {
-        query = "INSERT INTO `publisher`( `publisherID`, `publisherName`) VALUES (?,?)";
+        query = "INSERT INTO `customer`( `customerID`, `customerName`,`customerPhoneNumber`,`customerPoint`,`customerGender`) VALUES (?,?,?,?,?)";
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        maleRbutton.setSelected(true);
+        customerPointField.setText("0");
     }
 }

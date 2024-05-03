@@ -31,6 +31,11 @@ public class floorModifyController implements Initializable {
     private boolean update = true;
     String floorID;
 
+    String searchText;
+    void setSearchText(String searchText){
+        this.searchText = searchText;
+    }
+
     void warning(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);
@@ -56,7 +61,7 @@ public class floorModifyController implements Initializable {
             insert();
             clean();
         }
-        floorManagementController.refresh(); //refresh the floorManagement scene after modify
+        floorManagementController.refresh(searchText); //refresh the floorManagement scene after modify
     }
     private void insert() {
         try {

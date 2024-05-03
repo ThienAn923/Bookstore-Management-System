@@ -44,7 +44,9 @@ public class publisherManagementController implements Initializable {
     PreparedStatement preparedStatement = null ;
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
+
     publisher publisher = null ;
+    String searchText = null;
 
     void warning(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -54,7 +56,7 @@ public class publisherManagementController implements Initializable {
     }
     @FXML
     void findPublisher(){
-        String searchText = findBox.getText();
+        searchText = findBox.getText();
         refreshData(searchText);
         clearTable();
         getPublisher();
@@ -73,6 +75,7 @@ public class publisherManagementController implements Initializable {
             publisherAddController publisherAddController = loader.getController();
             // Pass a reference to the Scene A controller to Scene B
             publisherAddController.setController(this);
+            publisherAddController.setSearchText(searchText);
 
             Stage stage = new Stage();
             stage.setTitle("Thêm Nhà Xuất Bản");
@@ -130,12 +133,20 @@ public class publisherManagementController implements Initializable {
             publisherContainer.getChildren().remove(1, numChildren);
         }
     }
+
     public void refresh(){
         clearTable();
         publishers.clear(); //clear the list areas
         refreshData();
         getPublisher();
     }
+    public void refresh(String searchText){
+        clearTable();
+        publishers.clear(); //clear the list areas
+        refreshData(searchText);
+        getPublisher();
+    }
+
     private void getPublisher() {
         con = dbConnect.getConnect();
 
@@ -185,6 +196,7 @@ public class publisherManagementController implements Initializable {
                     publisherModifyController fac = loader.getController();
                     // Pass a reference to the Scene A controller to Scene B
                     fac.setController(this);
+                    fac.setSearchText(searchText);
 
                     if (fac != null) {
                         fac.setValue(publisher.getPublisherID(), publisher.getPublisherName());

@@ -50,6 +50,7 @@ public class areaManagementController implements Initializable {
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
     area area = null ;
+    String searchText = null;
     Map<String, String> floorsMap = new HashMap<>();
 
     void warning(String content){
@@ -60,7 +61,7 @@ public class areaManagementController implements Initializable {
     }
     @FXML
     void findArea(){
-        String searchText = findBox.getText();
+        searchText = findBox.getText();
         refreshData(searchText);
         clearTable();
         getArea();
@@ -105,6 +106,12 @@ public class areaManagementController implements Initializable {
         refreshData();
         getArea();
     }
+    public void refresh(String searchText){
+        clearTable();
+        areas.clear(); //clear the list areas
+        refreshData(searchText);
+        getArea();
+    }
 
     @FXML
     private void addArea(){
@@ -119,6 +126,7 @@ public class areaManagementController implements Initializable {
             areaAddController areaAddController = loader.getController();
             // Pass a reference to the Scene A controller to Scene B
             areaAddController.setController(this);
+            areaAddController.setSearchText(searchText);
 
             Stage stage = new Stage();
             stage.setTitle("Thêm Khu Vực");
@@ -224,6 +232,7 @@ public class areaManagementController implements Initializable {
                     areaModifyController fac = loader.getController();
                     // Pass a reference to the Scene A controller to Scene B
                     fac.setController(this);
+                    fac.setSearchText(searchText);
 
                     if (fac != null) {
 //                        fac.setUpdate(true);
