@@ -46,7 +46,7 @@ public class publisherManagementController implements Initializable {
     ResultSet resultSet = null ;
 
     publisher publisher = null ;
-    String searchText = null;
+    String searchText = "";
 
     void warning(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);

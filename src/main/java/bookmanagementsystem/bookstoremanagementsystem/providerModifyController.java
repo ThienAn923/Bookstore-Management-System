@@ -15,13 +15,13 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class categoryModifyController implements Initializable {
+public class providerModifyController implements Initializable {
     @FXML
-    private TextField categoryIDField;
+    private TextField providerIDField;
     @FXML
-    private TextField categoryNameField;
+    private TextField providerNameField;
     @FXML
-    private Button categoryAddButton;
+    private Button providerAddButton;
     @FXML
     private Button cleanButton;
     String query = null;
@@ -29,7 +29,7 @@ public class categoryModifyController implements Initializable {
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
     private boolean update = true;
-    String categoryID;
+    String providerID;
 
     String searchText = "";
     void setSearchText(String searchText){
@@ -42,17 +42,16 @@ public class categoryModifyController implements Initializable {
         alert.setContentText(content);
         alert.showAndWait();
     }
-
-    private categoryManagementController categoryManagementController;
-    public void setController(categoryManagementController categoryManagementController){
-        this.categoryManagementController = categoryManagementController;
+    private providerManagementController providerManagementController;
+    public void setController(providerManagementController providerManagementController){
+        this.providerManagementController = providerManagementController;
     }
     @FXML
-    private void modifyCategory() {
-        categoryID = categoryIDField.getText();
-        String categoryName = categoryNameField.getText();
+    private void modifyProvider() {
+        providerID = providerIDField.getText();
+        String providerName = providerNameField.getText();
         con = dbConnect.getConnect();
-        if (categoryID.isEmpty() || categoryName.isEmpty()) {
+        if (providerID.isEmpty() || providerName.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Có thể có khung còn trống");
@@ -62,47 +61,46 @@ public class categoryModifyController implements Initializable {
             insert();
             clean();
         }
-        categoryManagementController.refresh(searchText); //refresh the categoryManagement scene after modify
+        providerManagementController.refresh(searchText); //refresh the providerManagement scene after modify
     }
     private void insert() {
         try {
 
             preparedStatement = con.prepareStatement(query);
-            preparedStatement.setString(1, categoryIDField.getText());
-            preparedStatement.setString(2, categoryNameField.getText());
+            preparedStatement.setString(1, providerIDField.getText());
+            preparedStatement.setString(2, providerNameField.getText());
             if (update) { // Set the third parameter only if updating
-                preparedStatement.setString(3, categoryID);
+                preparedStatement.setString(3, providerID);
             }
             preparedStatement.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(categoryAddController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(providerAddController.class.getName()).log(Level.SEVERE, null, ex);
             warning("");
         }
 
     }
     @FXML
     private void clean() {
-//        categoryIDField.setText(null);
-        categoryNameField.setText(null);
+//        providerIDField.setText(null);
+        providerNameField.setText(null);
     }
 
     private void getQuery() {
 
-        query = "UPDATE `category` SET "
-                + "`categoryID` = ?,"
-                + "`categoryName` = ? WHERE `categoryID` = ?";
+        query = "UPDATE `provider` SET "
+                + "`providerID` = ?,"
+                + "`providerName` = ? WHERE `providerID` = ?";
 
     }
     void setValue(String id, String name){
-        categoryID = id;
-        categoryIDField.setText(id);
-        categoryNameField.setText(name);
+        providerID = id;
+        providerIDField.setText(id);
+        providerNameField.setText(name);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        categoryIDField.setEditable(false);
+        providerIDField.setEditable(false);
     }
-
 }

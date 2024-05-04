@@ -46,7 +46,7 @@ public class categoryManagementController implements Initializable {
     ResultSet resultSet = null ;
 
     category category = null ;
-    String searchText;
+    String searchText = "";
 
     void warning(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);

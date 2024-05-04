@@ -31,7 +31,7 @@ public class floorModifyController implements Initializable {
     private boolean update = true;
     String floorID;
 
-    String searchText;
+    String searchText = "";
     void setSearchText(String searchText){
         this.searchText = searchText;
     }

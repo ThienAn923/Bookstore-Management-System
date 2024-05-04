@@ -33,7 +33,7 @@ public class categoryAddController implements Initializable {
 
     String categoryID;
 
-    String searchText;
+    String searchText = "";
     void setSearchText(String searchText){
         this.searchText = searchText;
     }

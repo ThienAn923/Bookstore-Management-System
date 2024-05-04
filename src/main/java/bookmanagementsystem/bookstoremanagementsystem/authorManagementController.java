@@ -47,7 +47,7 @@ public class authorManagementController implements Initializable {
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
     author author = null ;
-    String searchText;
+    String searchText = "";
     void warning(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);

@@ -33,7 +33,7 @@ public class publisherAddController implements Initializable {
 
     String publisherID;
 
-    String searchText;
+    String searchText = "";
     void setSearchText(String searchText){
         this.searchText = searchText;
     }

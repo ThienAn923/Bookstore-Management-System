@@ -32,7 +32,7 @@ public class publisherModifyController implements Initializable {
     private boolean update = true;
     String publisherID;
 
-    String searchText;
+    String searchText = "";
     void setSearchText(String searchText){
         this.searchText = searchText;
     }

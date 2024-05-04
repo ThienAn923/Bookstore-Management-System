@@ -47,7 +47,7 @@ public class customerManagementController implements Initializable {
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
     customer customer = null ;
-    String searchText = null;
+    String searchText = "";
 
     void warning(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);

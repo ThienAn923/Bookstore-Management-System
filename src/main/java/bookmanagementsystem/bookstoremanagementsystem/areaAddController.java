@@ -41,7 +41,7 @@ public class areaAddController implements Initializable {
     String FloorID = ""; //waiting for user to select floorID from choiceBox
     Map<String, String> floorsMap = new HashMap<>();
     List<String> floorsNameAndIDList = new ArrayList<>();
-    String searchText;
+    String searchText = "";
 
     void setSearchText(String searchText){
         this.searchText = searchText;

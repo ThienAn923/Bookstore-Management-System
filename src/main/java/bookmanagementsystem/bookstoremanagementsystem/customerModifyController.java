@@ -40,7 +40,7 @@ public class customerModifyController implements Initializable {
     String customerID;
     boolean customerGender = true;
     int customerPoint = 0;
-    String searchText = null;
+    String searchText = "";
 
     void warning(String warning){
         Alert alert = new Alert(Alert.AlertType.ERROR);

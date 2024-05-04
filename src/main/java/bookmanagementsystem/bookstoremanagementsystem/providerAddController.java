@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -17,15 +16,13 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class authorAddController implements Initializable {
+public class providerAddController implements Initializable {
     @FXML
-    private TextField authorIDField;
+    private TextField providerIDField;
     @FXML
-    private TextField authorNameField;
+    private TextField providerNameField;
     @FXML
-    private TextArea authorDescriptionField;
-    @FXML
-    private Button authorAddButton;
+    private Button providerAddButton;
     @FXML
     private Button cleanButton;
 
@@ -34,24 +31,23 @@ public class authorAddController implements Initializable {
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
 
-    String authorID;
+    String providerID;
+
     String searchText = "";
-
-    private authorManagementController authorManagementController ;
-
     void setSearchText(String searchText){
         this.searchText = searchText;
     }
 
-    public void setController(authorManagementController authorManagementController){
-        this.authorManagementController = authorManagementController;
+    private providerManagementController providerManagementController ;
+    public void setController(providerManagementController providerManagementController){
+        this.providerManagementController = providerManagementController;
     }
 
     @FXML
     private void autoIDGen(){
         try {
             con = dbConnect.getConnect();
-            query = "SELECT COUNT(*) FROM `author`";
+            query = "SELECT COUNT(*) FROM `provider`";
             preparedStatement = con.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
             resultSet.next();
@@ -62,16 +58,16 @@ public class authorAddController implements Initializable {
             boolean foundUnusedID = false;
             for(int i = 0; i < 100; i++){
                 count++;
-                id = "AU000" + count;
+                id = "PVD000" + count;
                 // Check if the ID is already in use
-                query = "SELECT * FROM `author` WHERE `authorID` = ?";
+                query = "SELECT * FROM `provider` WHERE `providerID` = ?";
                 preparedStatement = con.prepareStatement(query);
                 preparedStatement.setString(1, id);
                 resultSet = preparedStatement.executeQuery();
 
                 if (!resultSet.next()) {
                     foundUnusedID = true;
-                    authorIDField.setText(id);
+                    providerIDField.setText(id);
                     break; // Exit loop if unused ID is found
                 }
 
@@ -90,7 +86,7 @@ public class authorAddController implements Initializable {
                     // Append the randomly selected character to the randomID string
                     randomID.append(CHARACTERS.charAt(randomIndex));
                 }
-                authorIDField.setText(String.valueOf(randomID));
+                providerIDField.setText(String.valueOf(randomID));
 
                 con.close();
             }
@@ -99,13 +95,11 @@ public class authorAddController implements Initializable {
         }
     }
     @FXML
-    private void addAuthor() {
-        authorID = authorIDField.getText();
-        String authorName = authorNameField.getText();
-        String authorDescription = authorDescriptionField.getText();
+    private void addProvider() {
+        providerID = providerIDField.getText();
+        String providerName = providerNameField.getText();
         con = dbConnect.getConnect();
-
-        if (authorID.isEmpty() || authorName.isEmpty() ) {
+        if (providerID.isEmpty() || providerName.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Có thể có khung còn trống");
@@ -115,33 +109,30 @@ public class authorAddController implements Initializable {
             insert();
             clean();
         }
-        authorManagementController.refresh(searchText); //to refresh the authorManagement every time a author is created
+        providerManagementController.refresh(searchText); //to refresh the providerManagement every time a provider is created
     }
     private void insert() {
         try {
 
             preparedStatement = con.prepareStatement(query);
-            preparedStatement.setString(1, authorIDField.getText());
-            preparedStatement.setString(2, authorNameField.getText());
-            preparedStatement.setString(3, authorDescriptionField.getText());
+            preparedStatement.setString(1, providerIDField.getText());
+            preparedStatement.setString(2, providerNameField.getText());
             preparedStatement.execute();
 
         } catch (SQLException ex) {
-            Logger.getLogger(authorAddController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(providerAddController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
     @FXML
     private void clean() {
-        authorIDField.setText(null);
-        authorNameField.setText(null);
-        authorDescriptionField.setText(null);
+        providerIDField.setText(null);
+        providerNameField.setText(null);
     }
 
     private void getQuery() {
-        query = "INSERT INTO `author`( `authorID`, `authorName`,`authorDescription`) VALUES (?,?,?)";
+        query = "INSERT INTO `provider`( `providerID`, `providerName`) VALUES (?,?)";
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

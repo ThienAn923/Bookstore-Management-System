@@ -50,7 +50,7 @@ public class areaManagementController implements Initializable {
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
     area area = null ;
-    String searchText = null;
+    String searchText = "";
     Map<String, String> floorsMap = new HashMap<>();
 
     void warning(String content){

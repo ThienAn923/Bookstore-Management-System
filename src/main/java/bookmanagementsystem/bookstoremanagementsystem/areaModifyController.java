@@ -39,7 +39,7 @@ public class areaModifyController implements Initializable {
     String areaID;
     String FloorID = ""; //waiting for user to select floorID from choiceBox
     String FloorName;
-    String searchText;
+    String searchText = "";
 
     Map<String, String> floorsMap = new HashMap<>();
     List<String> floorsNameAndIDList = new ArrayList<>();

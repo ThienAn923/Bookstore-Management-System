@@ -32,7 +32,7 @@ public class floorAddController implements Initializable {
     private boolean update;
     String floorID;
 
-    String searchText;
+    String searchText = "";
     void setSearchText(String searchText){
         this.searchText = searchText;
     }
