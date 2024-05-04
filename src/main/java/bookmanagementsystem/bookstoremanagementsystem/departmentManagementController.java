@@ -26,26 +26,26 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class providerManagementController implements Initializable {
+public class departmentManagementController implements Initializable {
     @FXML
-    private Button providerAddButton;
+    private Button departmentAddButton;
     @FXML
     private Button refreshButton;
     @FXML
     private TextField findBox;
     @FXML
-    private VBox providerContainer;
+    private VBox departmentContainer;
     @FXML
-    private ScrollPane providersScrollPane;
+    private ScrollPane departmentsScrollPane;
 
-    ObservableList<provider> providers = FXCollections.observableArrayList();
+    ObservableList<department> departments = FXCollections.observableArrayList();
 
     String query = null;
     PreparedStatement preparedStatement = null ;
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
 
-    provider provider = null ;
+    department department = null ;
     String searchText = "";
 
     void warning(String content){
@@ -55,30 +55,30 @@ public class providerManagementController implements Initializable {
         alert.showAndWait();
     }
     @FXML
-    void findProvider(){
+    void findDepartment(){
         searchText = findBox.getText();
         refreshData(searchText);
         clearTable();
-        getProvider();
+        getDepartment();
     }
 
     @FXML
-    private void addProvider(){
+    private void addDepartment(){
         try {
             FXMLLoader loader = new FXMLLoader ();
-            loader.setLocation(getClass().getResource("providerAdd.fxml"));
+            loader.setLocation(getClass().getResource("departmentAdd.fxml"));
             Parent root = (Parent) loader.load();
 
-            //This part of code is to set the controller for providerAddcontroller as this controller
+            //This part of code is to set the controller for departmentAddcontroller as this controller
             //so it can call the refresh function from this controller
             //this, is black magic, if i was at 17th centuary, i would be burned alive
-            providerAddController providerAddController = loader.getController();
+            departmentAddController departmentAddController = loader.getController();
             // Pass a reference to the Scene A controller to Scene B
-            providerAddController.setController(this);
-            providerAddController.setSearchText(searchText);
+            departmentAddController.setController(this);
+            departmentAddController.setSearchText(searchText);
 
             Stage stage = new Stage();
-            stage.setTitle("Thêm Nhà Cung Cấp");
+            stage.setTitle("Thêm Bộ Phận");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
@@ -90,14 +90,14 @@ public class providerManagementController implements Initializable {
         try {
             //Database stuff
             con = dbConnect.getConnect();
-            query = "SELECT * FROM `provider`";
+            query = "SELECT * FROM `department`";
             preparedStatement = con.prepareStatement(query);
             resultSet = preparedStatement.executeQuery(query);
 
             while (resultSet.next()){
-                providers.add(new provider(
-                        resultSet.getString("providerID"),
-                        resultSet.getString("providerName")));
+                departments.add(new department(
+                        resultSet.getString("departmentID"),
+                        resultSet.getString("departmentName")));
             }
             con.close();
         } catch (SQLException ex) {
@@ -106,9 +106,9 @@ public class providerManagementController implements Initializable {
     }
     private void refreshData(String searchText) {
         try {
-            providers.clear();
+            departments.clear();
             con = dbConnect.getConnect();
-            query = "SELECT * FROM `provider` WHERE `providerID` LIKE ? OR `providerName` LIKE ?";
+            query = "SELECT * FROM `department` WHERE `departmentID` LIKE ? OR `departmentName` LIKE ?";
 
             preparedStatement = con.prepareStatement(query);
             preparedStatement.setString(1, "%" + searchText + "%");
@@ -116,9 +116,9 @@ public class providerManagementController implements Initializable {
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                providers.add(new provider(
-                        resultSet.getString("providerID"),
-                        resultSet.getString("providerName")));
+                departments.add(new department(
+                        resultSet.getString("departmentID"),
+                        resultSet.getString("departmentName")));
             }
             con.close();
         } catch (SQLException ex) {
@@ -128,43 +128,43 @@ public class providerManagementController implements Initializable {
     }
     public void clearTable(){
         //remove all children except the first one ( the first one is not a box contain areas infomation)
-        int numChildren = providerContainer.getChildren().size();
+        int numChildren = departmentContainer.getChildren().size();
         if (numChildren > 1) {
-            providerContainer.getChildren().remove(1, numChildren);
+            departmentContainer.getChildren().remove(1, numChildren);
         }
     }
 
     public void refresh(){
         clearTable();
-        providers.clear(); //clear the list areas
+        departments.clear(); //clear the list areas
         refreshData();
-        getProvider();
+        getDepartment();
     }
     public void refresh(String searchText){
         clearTable();
-        providers.clear(); //clear the list areas
+        departments.clear(); //clear the list areas
         refreshData(searchText);
-        getProvider();
+        getDepartment();
     }
 
-    private void getProvider() {
+    private void getDepartment() {
         con = dbConnect.getConnect();
 
-        for (provider provider : providers) {
-            HBox providerBox = new HBox(); //Create container to hold the providers
-            providerBox.setStyle("-fx-border-color: rgb(128,128,128); " +
+        for (department department : departments) {
+            HBox departmentBox = new HBox(); //Create container to hold the departments
+            departmentBox.setStyle("-fx-border-color: rgb(128,128,128); " +
                     "-fx-border-width: 0 1px 1px 1px; " +
                     "-fx-border-style: solid;");
 
-            providerBox.setPrefHeight(36);
-            providerBox.setAlignment(Pos.CENTER_LEFT); //set the position of component inside the containner
+            departmentBox.setPrefHeight(36);
+            departmentBox.setAlignment(Pos.CENTER_LEFT); //set the position of component inside the containner
 
-            Label providerIdLabel = new Label(provider.getProviderID());
-            Label providerNameLabel = new Label(provider.getProviderName());
+            Label departmentIdLabel = new Label(department.getDepartmentID());
+            Label departmentNameLabel = new Label(department.getDepartmentName());
 
-            providerIdLabel.setMinWidth(370);
-            providerNameLabel.setMinWidth(510);
-            providerBox.setMargin(providerIdLabel, new Insets(0,0,0,30));
+            departmentIdLabel.setMinWidth(370);
+            departmentNameLabel.setMinWidth(510);
+            departmentBox.setMargin(departmentIdLabel, new Insets(0,0,0,30));
 
             FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
             FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
@@ -174,37 +174,37 @@ public class providerManagementController implements Initializable {
 
             deleteIcon.setOnMouseClicked(event -> {
                 try {
-                    query = "DELETE FROM `provider` WHERE providerID = '" + provider.getProviderID() + "'";
+                    query = "DELETE FROM `department` WHERE departmentID = '" + department.getDepartmentID() + "'";
                     con = dbConnect.getConnect();
                     preparedStatement = con.prepareStatement(query);
                     preparedStatement.execute();
                     refreshData();
                     refresh(); //refresh the table after delete
                 } catch (SQLException ex) {
-                    Logger.getLogger(providerManagementController.class.getName()).log(Level.SEVERE, null, ex);
-                    warning("Không thể xóa nhà cung cấp");
+                    Logger.getLogger(departmentManagementController.class.getName()).log(Level.SEVERE, null, ex);
+                    warning("Không thể xóa bộ phận");
                 }
             });
 
             editIcon.setOnMouseClicked(event -> {
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("providerModify.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("departmentModify.fxml"));
                     Parent root = loader.load();
-                    //This part of code is to set the controller for providerAddcontroller as this controller
+                    //This part of code is to set the controller for departmentAddcontroller as this controller
                     //so it can call the refresh function from this controller
                     //this, is black magic, if i was at 17th centuary, i would be burned alive
-                    providerModifyController fac = loader.getController();
+                    departmentModifyController fac = loader.getController();
                     // Pass a reference to the Scene A controller to Scene B
                     fac.setController(this);
                     fac.setSearchText(searchText);
 
                     if (fac != null) {
-                        fac.setValue(provider.getProviderID(), provider.getProviderName());
+                        fac.setValue(department.getDepartmentID(), department.getDepartmentName());
                     } else {
                         System.err.println("Controller is null.");
                     }
                     Stage stage = new Stage();
-                    stage.setTitle("Modify Provider");
+                    stage.setTitle("Modify Department");
                     stage.setScene(new Scene(root));
                     stage.show();
                 } catch (IOException e) {
@@ -217,9 +217,9 @@ public class providerManagementController implements Initializable {
             buttonBox.setAlignment(Pos.CENTER_RIGHT);
             buttonBox.setSpacing(10);
 
-            providerBox.getChildren().addAll(providerIdLabel, providerNameLabel, buttonBox);
+            departmentBox.getChildren().addAll(departmentIdLabel, departmentNameLabel, buttonBox);
             // Add the HBox for each floor to your layout
-            providerContainer.getChildren().add(providerBox);
+            departmentContainer.getChildren().add(departmentBox);
         }
 
     }
@@ -228,9 +228,9 @@ public class providerManagementController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         refreshData();
-        getProvider();
+        getDepartment();
         //hide the scroll bar of the scroll pane
-        providersScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        providersScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        departmentsScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        departmentsScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
     }
 }

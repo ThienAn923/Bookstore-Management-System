@@ -22,63 +22,70 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class providerManagementController implements Initializable {
+public class positionManagementController implements Initializable {
     @FXML
-    private Button providerAddButton;
+    private Button PositionAddButton;
     @FXML
     private Button refreshButton;
     @FXML
+    private Label testLabel;
+    @FXML
     private TextField findBox;
     @FXML
-    private VBox providerContainer;
+    private VBox positionContainer;
     @FXML
-    private ScrollPane providersScrollPane;
+    private ScrollPane positionsScrollPane;
 
-    ObservableList<provider> providers = FXCollections.observableArrayList();
+    ObservableList<position> positions = FXCollections.observableArrayList();
 
     String query = null;
     PreparedStatement preparedStatement = null ;
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
-
-    provider provider = null ;
+    position position = null ;
     String searchText = "";
-
     void warning(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
     }
-    @FXML
-    void findProvider(){
-        searchText = findBox.getText();
-        refreshData(searchText);
-        clearTable();
-        getProvider();
+    //turn number to formatted salary
+    String toSalary(float salary){
+        DecimalFormat formatter = new DecimalFormat("#,###đ");
+        return formatter.format(salary * 1000);
     }
 
     @FXML
-    private void addProvider(){
+    void findPosition(){
+        searchText = findBox.getText();
+        refreshData(searchText);
+        clearTable();
+        getPosition();
+    }
+
+    @FXML
+    private void addPosition(){
         try {
             FXMLLoader loader = new FXMLLoader ();
-            loader.setLocation(getClass().getResource("providerAdd.fxml"));
+            loader.setLocation(getClass().getResource("positionAdd.fxml"));
             Parent root = (Parent) loader.load();
 
-            //This part of code is to set the controller for providerAddcontroller as this controller
+            //This part of code is to set the controller for positionAddcontroller as this controller
             //so it can call the refresh function from this controller
             //this, is black magic, if i was at 17th centuary, i would be burned alive
-            providerAddController providerAddController = loader.getController();
+            positionAddController positionAddController = loader.getController();
             // Pass a reference to the Scene A controller to Scene B
-            providerAddController.setController(this);
-            providerAddController.setSearchText(searchText);
+            positionAddController.setController(this);
+            positionAddController.setSearchText(searchText);
 
             Stage stage = new Stage();
-            stage.setTitle("Thêm Nhà Cung Cấp");
+            stage.setTitle("Thêm tác giả");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
@@ -90,14 +97,15 @@ public class providerManagementController implements Initializable {
         try {
             //Database stuff
             con = dbConnect.getConnect();
-            query = "SELECT * FROM `provider`";
+            query = "SELECT * FROM `position`";
             preparedStatement = con.prepareStatement(query);
             resultSet = preparedStatement.executeQuery(query);
 
             while (resultSet.next()){
-                providers.add(new provider(
-                        resultSet.getString("providerID"),
-                        resultSet.getString("providerName")));
+                positions.add(new position(
+                        resultSet.getString("positionID"),
+                        resultSet.getString("positionName"),
+                        resultSet.getInt("positionSalary")));
             }
             con.close();
         } catch (SQLException ex) {
@@ -106,9 +114,9 @@ public class providerManagementController implements Initializable {
     }
     private void refreshData(String searchText) {
         try {
-            providers.clear();
+            positions.clear();
             con = dbConnect.getConnect();
-            query = "SELECT * FROM `provider` WHERE `providerID` LIKE ? OR `providerName` LIKE ?";
+            query = "SELECT * FROM `position` WHERE `positionID` LIKE ? OR `positionName` LIKE ?";
 
             preparedStatement = con.prepareStatement(query);
             preparedStatement.setString(1, "%" + searchText + "%");
@@ -116,9 +124,10 @@ public class providerManagementController implements Initializable {
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                providers.add(new provider(
-                        resultSet.getString("providerID"),
-                        resultSet.getString("providerName")));
+                positions.add(new position(
+                        resultSet.getString("positionID"),
+                        resultSet.getString("positionName"),
+                        resultSet.getInt("positionSalary")));
             }
             con.close();
         } catch (SQLException ex) {
@@ -128,43 +137,44 @@ public class providerManagementController implements Initializable {
     }
     public void clearTable(){
         //remove all children except the first one ( the first one is not a box contain areas infomation)
-        int numChildren = providerContainer.getChildren().size();
+        int numChildren = positionContainer.getChildren().size();
         if (numChildren > 1) {
-            providerContainer.getChildren().remove(1, numChildren);
+            positionContainer.getChildren().remove(1, numChildren);
         }
     }
-
     public void refresh(){
         clearTable();
-        providers.clear(); //clear the list areas
+        positions.clear(); //clear the list positions
         refreshData();
-        getProvider();
+        getPosition();
     }
     public void refresh(String searchText){
         clearTable();
-        providers.clear(); //clear the list areas
+        positions.clear(); //clear the list positions
         refreshData(searchText);
-        getProvider();
+        getPosition();
     }
-
-    private void getProvider() {
+    private void getPosition() {
         con = dbConnect.getConnect();
 
-        for (provider provider : providers) {
-            HBox providerBox = new HBox(); //Create container to hold the providers
-            providerBox.setStyle("-fx-border-color: rgb(128,128,128); " +
+        for (position position : positions) {
+            HBox positionBox = new HBox(); //Create container to hold the positions
+            positionBox.setStyle("-fx-border-color: rgb(128,128,128); " +
                     "-fx-border-width: 0 1px 1px 1px; " +
                     "-fx-border-style: solid;");
 
-            providerBox.setPrefHeight(36);
-            providerBox.setAlignment(Pos.CENTER_LEFT); //set the position of component inside the containner
+            positionBox.setPrefHeight(36);
+            positionBox.setAlignment(Pos.CENTER_LEFT); //set the position of component inside the containner
 
-            Label providerIdLabel = new Label(provider.getProviderID());
-            Label providerNameLabel = new Label(provider.getProviderName());
+            Label positionIdLabel = new Label(position.getPositionID());
+            Label positionNameLabel = new Label(position.getPositionName());
+            Label positionSalaryLabel = new Label(toSalary(position.getPositionSalaryCoefficient()));
 
-            providerIdLabel.setMinWidth(370);
-            providerNameLabel.setMinWidth(510);
-            providerBox.setMargin(providerIdLabel, new Insets(0,0,0,30));
+            positionIdLabel.setMinWidth(185);
+            positionNameLabel.setMinWidth(510);
+            positionSalaryLabel.setMinWidth(185);
+
+            positionBox.setMargin(positionIdLabel, new Insets(0,0,0,30));
 
             FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
             FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
@@ -174,37 +184,37 @@ public class providerManagementController implements Initializable {
 
             deleteIcon.setOnMouseClicked(event -> {
                 try {
-                    query = "DELETE FROM `provider` WHERE providerID = '" + provider.getProviderID() + "'";
+                    query = "DELETE FROM `position` WHERE positionID = '" + position.getPositionID() + "'";
                     con = dbConnect.getConnect();
                     preparedStatement = con.prepareStatement(query);
                     preparedStatement.execute();
                     refreshData();
                     refresh(); //refresh the table after delete
                 } catch (SQLException ex) {
-                    Logger.getLogger(providerManagementController.class.getName()).log(Level.SEVERE, null, ex);
-                    warning("Không thể xóa nhà cung cấp");
+                    Logger.getLogger(positionManagementController.class.getName()).log(Level.SEVERE, null, ex);
+                    warning("Không thể xóa tác giả, hãy chắc chắn tác giả bạn đang xóa không còn liên kết với sách nào");
                 }
             });
 
             editIcon.setOnMouseClicked(event -> {
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("providerModify.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("positionModify.fxml"));
                     Parent root = loader.load();
-                    //This part of code is to set the controller for providerAddcontroller as this controller
+                    //This part of code is to set the controller for positionAddcontroller as this controller
                     //so it can call the refresh function from this controller
                     //this, is black magic, if i was at 17th centuary, i would be burned alive
-                    providerModifyController fac = loader.getController();
+                    positionModifyController fac = loader.getController();
                     // Pass a reference to the Scene A controller to Scene B
                     fac.setController(this);
                     fac.setSearchText(searchText);
 
                     if (fac != null) {
-                        fac.setValue(provider.getProviderID(), provider.getProviderName());
+                        fac.setValue(position.getPositionID(), position.getPositionName(), String.valueOf(position.getPositionSalaryCoefficient()));
                     } else {
                         System.err.println("Controller is null.");
                     }
                     Stage stage = new Stage();
-                    stage.setTitle("Modify Provider");
+                    stage.setTitle("Chỉnh sửa tác giả");
                     stage.setScene(new Scene(root));
                     stage.show();
                 } catch (IOException e) {
@@ -217,9 +227,10 @@ public class providerManagementController implements Initializable {
             buttonBox.setAlignment(Pos.CENTER_RIGHT);
             buttonBox.setSpacing(10);
 
-            providerBox.getChildren().addAll(providerIdLabel, providerNameLabel, buttonBox);
-            // Add the HBox for each floor to your layout
-            providerContainer.getChildren().add(providerBox);
+            positionBox.getChildren().addAll(positionIdLabel, positionNameLabel, positionSalaryLabel, buttonBox);
+
+            // Add the HBox for each position to your layout
+            positionContainer.getChildren().add(positionBox);
         }
 
     }
@@ -228,9 +239,9 @@ public class providerManagementController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         refreshData();
-        getProvider();
+        getPosition();
         //hide the scroll bar of the scroll pane
-        providersScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        providersScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        positionsScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        positionsScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
     }
 }
