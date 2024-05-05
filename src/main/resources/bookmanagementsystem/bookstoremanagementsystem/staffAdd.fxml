@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.staffAddController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
+         <children>
+            <Label text="THÊM NHÂN VIÊN">
+               <font>
+                  <Font name="System Bold" size="37.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Pane layoutY="100.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: white;">
+               <children>
+                  <HBox>
+                     <children>
+                        <VBox alignment="CENTER_LEFT" minWidth="262.0">
+                           <children>
+                              <Label text="ID Nhân Viên (*):">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox prefHeight="25.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="staffIDField" prefHeight="25.0" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button fx:id="autoButton" maxWidth="50.0" minWidth="45.0" mnemonicParsing="false" onAction="#autoIDGen" text="Auto" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" minWidth="262.0">
+                           <children>
+                              <Label text="Email(*):">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox prefHeight="25.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="staffEmailField" prefHeight="25.0" prefWidth="242.0">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="56.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" layoutY="340.0" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: white;">
+               <children>
+                  <Button fx:id="staffAddButton" mnemonicParsing="false" onMouseClicked="#addStaff" text="Thêm" />
+                  <Button fx:id="cleanButton" mnemonicParsing="false" onMouseClicked="#clean" text="Xóa">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER_LEFT" layoutY="60.0" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: white;">
+               <children>
+                  <HBox>
+                     <children>
+                        <VBox alignment="CENTER_LEFT" minWidth="262.0">
+                           <children>
+                              <Label text="Tên Nhân Viên (*):">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="staffNameField" maxWidth="242.0" prefWidth="242.0">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" minWidth="262.0">
+                           <children>
+                              <Label text="Giới Tính (*):">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox>
+                                 <children>
+                                    <RadioButton fx:id="maleRbutton" mnemonicParsing="false" onAction="#setGender" text="Nam">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="staffGenderGroup" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="femaleRbutton" mnemonicParsing="false" onAction="#setGender" text="Nữ" toggleGroup="$staffGenderGroup">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="20.0" top="3.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="56.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox layoutY="120.0" prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: white;">
+                     <children>
+                        <HBox>
+                           <children>
+                              <VBox alignment="CENTER_LEFT" minWidth="262.0">
+                                 <children>
+                                    <Label text="Số Điện Thoại (*):">
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="25.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="staffPhoneNumberField" prefHeight="25.0" prefWidth="242.0">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" minWidth="262.0">
+                                 <children>
+                                    <Label text="Ngày Sinh:">
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="25.0" prefWidth="200.0">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <children>
+                                          <DatePicker fx:id="staffBirthdayField" minWidth="242.0">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </DatePicker>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="56.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER_LEFT" layoutY="180.0" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: white;">
+               <children>
+                  <HBox>
+                     <children>
+                        <VBox alignment="CENTER_LEFT" minWidth="262.0">
+                           <children>
+                              <Label text="Hình ảnh:">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox prefHeight="25.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="staffImageField" prefHeight="25.0" prefWidth="195.0">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button fx:id="pickImageButton" maxWidth="45.0" minWidth="45.0" mnemonicParsing="false" onAction="#pickImage" text="Chọn" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" minWidth="262.0">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label text="Bộ phận làm việc">
+                                             <VBox.margin>
+                                                <Insets left="20.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <HBox prefHeight="25.0" prefWidth="135.0">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <ChoiceBox fx:id="departmentIDBox" prefWidth="115.0">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ChoiceBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox>
+                                       <children>
+                                          <Label text="Chức vụ">
+                                             <VBox.margin>
+                                                <Insets left="20.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <HBox prefHeight="25.0" prefWidth="135.0">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <ChoiceBox fx:id="positionIDBox" prefWidth="115.0">
+                                                   <HBox.margin>
+                                                      <Insets left="12.0" />
+                                                   </HBox.margin>
+                                                </ChoiceBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="56.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox layoutY="240.0" prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: white;">
+               <children>
+                  <VBox minWidth="560.0">
+                     <children>
+                        <Label text="Mô Tả:" />
+                        <TextArea fx:id="staffDescriptionField" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </children>
+</Pane>

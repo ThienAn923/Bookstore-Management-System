@@ -193,7 +193,7 @@ public class areaAddController implements Initializable {
 
 
         getAllID(); // get all floors ID
-        //pass all data from getAllFloorID to list box
+        //pass all data from getAllID to list box
         setUpChoicebox();
         //choose the fist option as default
         IDBox.setOnAction(this::getID);
