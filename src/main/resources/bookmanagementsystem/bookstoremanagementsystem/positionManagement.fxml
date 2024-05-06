@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.positionManagementController">
+   <children>
+      <Pane prefHeight="70.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee;">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee; -fx-border-radius: 500px;">
+               <children>
+                  <Label fx:id="testLabel" text="QUẢN LÝ CHỨC VỤ">
+                     <HBox.margin>
+                        <Insets left="30.0" right="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="750.0" style="-fx-background-color: #eeeeee; -fx-border-width: 2 2 2 2;">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefWidth="750.0">
+                           <children>
+                              <HBox alignment="CENTER_RIGHT">
+                                 <children>
+                                    <Button fx:id="refreshButton" mnemonicParsing="false" onMouseClicked="#refresh" text="Làm Mới" />
+                                    <Button fx:id="PositionAddButton" mnemonicParsing="false" onMouseClicked="#addPosition" prefWidth="100.6" text="Thêm Chức Vụ">
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="3.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT">
+                                 <children>
+                                    <Label text="Tìm Kiếm Chức Vụ: " />
+                                    <TextField fx:id="findBox" onKeyReleased="#findPosition" prefWidth="172.0">
+                                       <HBox.margin>
+                                          <Insets right="3.0" top="5.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <ScrollPane fx:id="positionsScrollPane" layoutY="70.0" prefHeight="480.0" prefWidth="1000.0" style="-fx-background-color: #eeeeee;">
+         <content>
+            <VBox fx:id="positionContainer" prefHeight="1000.0" prefWidth="997.0" style="-fx-background-color: white;">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="998.0" style="-fx-border-width: 1 1 1 1; -fx-border-color: gray;">
+                     <children>
+                        <Label prefWidth="185.0" text="ID Chức Vụ">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label prefWidth="510.0" text="Tên Chức Vụ">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label prefWidth="185.0" text="Tiền Lương">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Tác vụ">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</Pane>

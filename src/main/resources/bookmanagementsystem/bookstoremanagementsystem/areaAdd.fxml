@@ -47,7 +47,7 @@
             </VBox>
             <HBox alignment="CENTER" layoutY="225.0" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Button fx:id="areaAddButton" mnemonicParsing="false" onMouseClicked="#addArea" text="Thêm" />
+                  <Button fx:id="areaAddButton" mnemonicParsing="false" onAction="#addArea" onMouseClicked="#addArea" text="Thêm" />
                   <Button fx:id="cleanButton" mnemonicParsing="false" onMouseClicked="#clean" text="Xóa">
                      <HBox.margin>
                         <Insets left="10.0" />

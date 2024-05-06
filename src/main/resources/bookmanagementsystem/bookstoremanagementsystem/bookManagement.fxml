@@ -33,7 +33,7 @@
               <columns>
                 <TableColumn fx:id="bookIdCol" prefWidth="100.0" text="ID sách" />
                 <TableColumn fx:id="bookAuthorCol" prefWidth="150.0" text="Tác giả" />
-                  <TableColumn fx:id="bookPublisherCol" prefWidth="150.0" text="Nhà xuất bản" />
+                  <TableColumn fx:id="bookcategoryCol" prefWidth="150.0" text="Nhà xuất bản" />
                   <TableColumn fx:id="bookCostCol" prefWidth="100.0" text="Giá" />
                   <TableColumn fx:id="bookRepulbishCol" prefWidth="75.0" text="Tái bản" />
                   <TableColumn fx:id="bookLocationCol" prefWidth="100.0" text="Vị trí sách" />

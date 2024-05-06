@@ -35,7 +35,14 @@ public class authorAddController implements Initializable {
     ResultSet resultSet = null ;
 
     String authorID;
+    String searchText = "";
+
     private authorManagementController authorManagementController ;
+
+    void setSearchText(String searchText){
+        this.searchText = searchText;
+    }
+
     public void setController(authorManagementController authorManagementController){
         this.authorManagementController = authorManagementController;
     }
@@ -108,7 +115,7 @@ public class authorAddController implements Initializable {
             insert();
             clean();
         }
-        authorManagementController.refresh(); //to refresh the authorManagement every time a author is created
+        authorManagementController.refresh(searchText); //to refresh the authorManagement every time a author is created
     }
     private void insert() {
         try {

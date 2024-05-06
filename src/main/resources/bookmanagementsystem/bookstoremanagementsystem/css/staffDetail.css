@@ -1,0 +1,4 @@
+.labelPane {
+    -fx-background-radius: 10px; /* Adjust the corner radius as needed */
+    -fx-background-color:  #f9fafb; /* Set the background color */
+}

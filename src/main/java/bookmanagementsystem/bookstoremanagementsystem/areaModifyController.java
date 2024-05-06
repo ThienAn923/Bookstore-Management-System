@@ -39,10 +39,15 @@ public class areaModifyController implements Initializable {
     String areaID;
     String FloorID = ""; //waiting for user to select floorID from choiceBox
     String FloorName;
+    String searchText = "";
 
     Map<String, String> floorsMap = new HashMap<>();
     List<String> floorsNameAndIDList = new ArrayList<>();
 
+
+    void setSearchText(String searchText){
+        this.searchText = searchText;
+    }
     areaManagementController areaManagementController;
     public void setController(areaManagementController areaManagementController) {
         this.areaManagementController = areaManagementController;
@@ -109,7 +114,7 @@ public class areaModifyController implements Initializable {
             clean();
 
         }
-        areaManagementController.refresh();
+        areaManagementController.refresh(searchText);
     }
     private void insert() {
         try {

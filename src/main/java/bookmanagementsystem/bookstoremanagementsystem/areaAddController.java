@@ -38,12 +38,14 @@ public class areaAddController implements Initializable {
     ResultSet resultSet = null ;
 
     String areaID;
-
     String FloorID = ""; //waiting for user to select floorID from choiceBox
     Map<String, String> floorsMap = new HashMap<>();
     List<String> floorsNameAndIDList = new ArrayList<>();
+    String searchText = "";
 
-
+    void setSearchText(String searchText){
+        this.searchText = searchText;
+    }
 
     private areaManagementController areaManagementController ;
     public void setController(areaManagementController areaManagementController){
@@ -161,7 +163,7 @@ public class areaAddController implements Initializable {
             clean();
 
         }
-        areaManagementController.refresh();
+        areaManagementController.refresh(searchText);
     }
     private void insert() {
         try {
@@ -191,7 +193,7 @@ public class areaAddController implements Initializable {
 
 
         getAllID(); // get all floors ID
-        //pass all data from getAllFloorID to list box
+        //pass all data from getAllID to list box
         setUpChoicebox();
         //choose the fist option as default
         IDBox.setOnAction(this::getID);

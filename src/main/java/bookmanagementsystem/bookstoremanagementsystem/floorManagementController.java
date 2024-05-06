@@ -51,6 +51,7 @@ public class floorManagementController implements Initializable {
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
     floor floor = null ;
+    String searchText = "";
 
     void warning(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -60,7 +61,7 @@ public class floorManagementController implements Initializable {
     }
     @FXML
     void findFloor(){
-        String searchText = findBox.getText();
+        searchText = findBox.getText();
         refreshData(searchText);
         clearTable();
         getFloor();
@@ -79,6 +80,7 @@ public class floorManagementController implements Initializable {
             floorAddController floorAddController = loader.getController();
             // Pass a reference to the Scene A controller to Scene B
             floorAddController.setController(this);
+            floorAddController.setSearchText(searchText);
 
             Stage stage = new Stage();
             stage.setTitle("Thêm tầng");
@@ -136,12 +138,20 @@ public class floorManagementController implements Initializable {
             floorContainer.getChildren().remove(1, numChildren);
         }
     }
+
     public void refresh(){
         clearTable();
         floors.clear(); //clear the list areas
         refreshData();
         getFloor();
     }
+    public void refresh(String searchText){
+        clearTable();
+        floors.clear(); //clear the list areas
+        refreshData(searchText);
+        getFloor();
+    }
+
     private void getFloor() {
         con = dbConnect.getConnect();
 
@@ -191,6 +201,7 @@ public class floorManagementController implements Initializable {
                     floorModifyController fac = loader.getController();
                     // Pass a reference to the Scene A controller to Scene B
                     fac.setController(this);
+                    fac.setSearchText(searchText);
 
                     if (fac != null) {
                         fac.setValue(floor.getFloorID(), floor.getFloorName());

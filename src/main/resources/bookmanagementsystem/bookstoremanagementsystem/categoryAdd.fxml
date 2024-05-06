@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.categoryAddController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
+         <children>
+            <Label text="THÊM THỂ LOẠI">
+               <font>
+                  <Font name="System Bold" size="37.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Pane layoutY="100.0" prefHeight="300.0" prefWidth="600.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: white;">
+               <children>
+                  <Label text="Nhập ID Thể Loại::">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="25.0" prefWidth="600.0">
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <TextField fx:id="categoryIDField" prefWidth="235.0" />
+                        <Button fx:id="autoButton" maxWidth="45.0" mnemonicParsing="false" onAction="#autoIDGen" text="Auto" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" layoutY="200.0" prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: white;">
+               <children>
+                  <Button fx:id="publisherAddButton" mnemonicParsing="false" onMouseClicked="#addCategory" text="Thêm" />
+                  <Button fx:id="cleanButton" mnemonicParsing="false" onMouseClicked="#clean" text="Xóa">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER_LEFT" layoutY="100.0" prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: white;">
+               <children>
+                  <Label text="Nhập Tên Thể Loại">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="categoryNameField" onAction="#addCategory">
+                     <VBox.margin>
+                        <Insets left="20.0" right="300.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</Pane>

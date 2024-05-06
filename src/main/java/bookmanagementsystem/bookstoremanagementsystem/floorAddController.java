@@ -31,6 +31,12 @@ public class floorAddController implements Initializable {
     ResultSet resultSet = null ;
     private boolean update;
     String floorID;
+
+    String searchText = "";
+    void setSearchText(String searchText){
+        this.searchText = searchText;
+    }
+
     private floorManagementController floorManagementController ;
     public void setController(floorManagementController floorManagementController){
         this.floorManagementController = floorManagementController;
@@ -102,7 +108,7 @@ public class floorAddController implements Initializable {
             insert();
             clean();
         }
-        floorManagementController.refresh(); //to refresh the floorManagement every time a floor is created
+        floorManagementController.refresh(searchText); //to refresh the floorManagement every time a floor is created
     }
     private void insert() {
         try {
