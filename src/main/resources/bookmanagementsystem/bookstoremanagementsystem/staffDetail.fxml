@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.staffDetailController">
+   <children>
+      <HBox prefHeight="650.0" prefWidth="500.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: white;" styleClass="labelPane" stylesheets="@css/staffDetail.css">
+               <children>
+                  <Label fx:id="profileLabel" text="PROFILE PICTURE">
+                     <VBox.margin>
+                        <Insets left="20.0" top="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ImageView fx:id="staffImage" fitHeight="300.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets left="20.0" top="7.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: white;">
+               <children>
+                  <Label text="THÔNG TIN CÁ NHÂN">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #f9fafb; -fx-background-radius: 10;" styleClass="labelPane">
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label text="ID:">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="staffIDLabel" text="Label">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="labelPane">
+                     <children>
+                        <Label text="Họ Tên">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="staffNameLabel" text="Label">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="20.0" top="5.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="labelPane">
+                     <children>
+                        <Label text="Sinh Nhật">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="staffBirthdayLabel" text="Label">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="20.0" top="5.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="labelPane">
+                     <children>
+                        <Label text="Giới Tính">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="staffGenderLabel" text="Label">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="20.0" top="5.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox prefHeight="100.0" prefWidth="100.0" styleClass="labelPane">
+                     <children>
+                        <Label text="Mô tả">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="staffDescriptionLabel" text="Label">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="20.0" top="5.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <Label text="THÔNG TIN LIÊN HỆ" />
+                  <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="labelPane">
+                     <children>
+                        <Label text="Số điện thoại">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="staffPhoneNumberLabel" text="Label">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="20.0" top="5.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="labelPane">
+                     <children>
+                        <Label text="Email">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="staffEmailLabel" text="Label">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="20.0" top="5.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <Label text="CÔNG TÁC ">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin></Label>
+                  <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="labelPane">
+                     <children>
+                        <Label text="Chức vụ">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="staffPositionLabel" text="Label">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="labelPane">
+                     <children>
+                        <Label text="Bộ Phận">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="staffDepartmentLabel" text="Label">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="labelPane">
+                     <children>
+                        <Label text="Bắt đầu vào ngày">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="staffJobStartDateLabel" text="Label">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</Pane>

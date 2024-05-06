@@ -6,7 +6,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.sql.*;
 import java.sql.Date;
@@ -65,8 +68,9 @@ public class staffAddController implements Initializable {
     boolean staffGender = true;
     String searchText = "";
     String imagePath;
+    byte[] imageData;
 
-    public void pickImage() {
+    public void pickImage() throws IOException {
         // Create a file chooser
         FileChooser fileChooser = new FileChooser();
 
@@ -89,6 +93,7 @@ public class staffAddController implements Initializable {
             // Return the path of the first selected file
             imagePath =  selectedFiles.get(0).getAbsolutePath();
             staffImageField.setText(imagePath);
+            imageData = Files.readAllBytes(Paths.get(imagePath));
         } else {
             // No file selected or dialog closed
             imagePath = null;
@@ -233,6 +238,7 @@ public class staffAddController implements Initializable {
         String staffEmail = staffEmailField.getText();
 
 
+
         con = dbConnect.getConnect();
         if (staffID.isEmpty() || staffName.isEmpty() || staffPhoneNumber.isEmpty() || staffEmail.isEmpty() || staffBirthdayField.getValue() == null) {
             warning("Có thể có khung còn trống");
@@ -256,7 +262,9 @@ public class staffAddController implements Initializable {
             preparedStatement.setDate(5, Date.valueOf(staffBirthdayField.getValue()));
             preparedStatement.setBoolean(6, staffGender);
             preparedStatement.setString(7, staffDescriptionField.getText());
-            preparedStatement.setString(8, staffImageField.getText());
+
+
+            preparedStatement.setBytes(8, imageData);
             preparedStatement.execute();
 
         } catch (SQLException ex) {

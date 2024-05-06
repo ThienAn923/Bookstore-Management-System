@@ -12,6 +12,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -225,7 +226,7 @@ public class staffManagementController implements Initializable {
                         System.err.println("Controller is null.");
                     }
                     Stage stage = new Stage();
-                    stage.setTitle("Chỉnh sửa thông tin khách hàng");
+                    stage.setTitle("Chỉnh sửa thông tin nhân viên");
                     stage.setScene(new Scene(root));
                     stage.show();
 
@@ -240,7 +241,33 @@ public class staffManagementController implements Initializable {
             buttonBox.setSpacing(10);
 
             staffBox.getChildren().addAll(staffIdLabel, staffNameLabel, staffPhoneNumberLabel, staffGenderLabel, staffEmaillabel, buttonBox);
+            staffBox.setOnMouseClicked(event -> {
+                if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                    try {
+                        // Open a new scene or perform any action you want here
+                        FXMLLoader Detailsloader = new FXMLLoader(getClass().getResource("staffDetail.fxml"));
+                        Parent root = Detailsloader.load();
+                        root.getStylesheets().add(getClass().getResource("css/staffDetail.css").toExternalForm());
+                        staffDetailController staffDetailController = Detailsloader.getController();
+                        // Pass a reference to the Scene A controller to Scene B
+                        staffDetailController.setController(this);
+                        if (staffDetailController != null) {
+                            if (!staffBox.getChildren().isEmpty() && staffBox.getChildren().get(0) instanceof Label)
+                            staffDetailController.setValue(((Label) staffBox.getChildren().get(0)).getText());
+                            else warning("Something happen... i can't have children");
+                        } else {
+                            System.err.println("Controller is null.");
+                        }
+                        Stage stage = new Stage();
+                        stage.setTitle("Thông tin chi tiết");
+                        stage.setScene(new Scene(root));
 
+                        stage.show();
+                    }catch (IOException e){
+                        warning("Không thể xem chi tiết nhân viên");
+                    }
+                }
+            });
             // Add the HBox for each staff to your layout
             staffContainer.getChildren().add(staffBox);
         }

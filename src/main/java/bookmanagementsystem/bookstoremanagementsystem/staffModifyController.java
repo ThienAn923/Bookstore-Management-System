@@ -8,7 +8,10 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.Date;
@@ -81,10 +84,10 @@ public class staffModifyController implements Initializable {
     String searchText = "";
     Date dateOfAssignment;
     Date today = Date.valueOf(LocalDate.now());
+    byte[] imageData;
 
 
-
-    public void pickImage() {
+    public void pickImage() throws IOException {
         // Create a file chooser
         FileChooser fileChooser = new FileChooser();
 
@@ -107,6 +110,7 @@ public class staffModifyController implements Initializable {
             // Return the path of the first selected file
             imagePath =  selectedFiles.get(0).getAbsolutePath();
             staffImageField.setText(imagePath);
+            imageData = Files.readAllBytes(Paths.get(imagePath));
         } else {
             // No file selected or dialog closed
             imagePath = null;
@@ -184,57 +188,6 @@ public class staffModifyController implements Initializable {
     }
 
     @FXML
-    private void autoIDGen(){
-        try {
-            con = dbConnect.getConnect();
-            query = "SELECT COUNT(*) FROM `staff`";
-            preparedStatement = con.prepareStatement(query);
-            resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-
-            int count = resultSet.getInt(1);
-
-            String id = null;
-            boolean foundUnusedID = false;
-            for(int i = 0; i < 100; i++){
-                count++;
-                id = "C000" + count;
-                // Check if the ID is already in use
-                query = "SELECT * FROM `staff` WHERE `staffID` = ?";
-                preparedStatement = con.prepareStatement(query);
-                preparedStatement.setString(1, id);
-                resultSet = preparedStatement.executeQuery();
-
-                if (!resultSet.next()) {
-                    foundUnusedID = true;
-                    staffIDField.setText(id);
-                    break; // Exit loop if unused ID is found
-                }
-
-            }
-
-            //this part is only use as the final option after 100 try and still no usable ID found
-            //it will create true random of character (only until the world burn, this will result in a duplicate ID in the database)
-            if(!foundUnusedID){
-                final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-                StringBuilder randomID = new StringBuilder();
-                final SecureRandom secureRandom = new SecureRandom();
-                // Generate random characters one by one until the desired length is reached
-                for (int i = 0; i < 10; i++) {
-                    // Generate a random index to select a character from CHARACTERS
-                    int randomIndex = secureRandom.nextInt(CHARACTERS.length());
-                    // Append the randomly selected character to the randomID string
-                    randomID.append(CHARACTERS.charAt(randomIndex));
-                }
-                staffIDField.setText(String.valueOf(randomID));
-
-                con.close();
-            }
-        }catch(SQLException e){
-            Logger.getLogger(bookManagementController.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
-    @FXML
     private void modifyStaff() {
         staffID = staffIDField.getText();
         String staffName = staffNameField.getText();
@@ -281,7 +234,7 @@ public class staffModifyController implements Initializable {
             preparedStatement.setBoolean(6, staffGender);
             preparedStatement.setString(7, staffDescriptionField.getText());
             if(!imagePath.isEmpty())
-                preparedStatement.setString(8, staffImageField.getText());
+                preparedStatement.setBytes(8, imageData);
 
             preparedStatement.execute();
 
@@ -377,7 +330,7 @@ public class staffModifyController implements Initializable {
                 + "`staffEmail`= ?,"
                 + "`staffBirthday`=?,"
                 + "`staffGender`= ?,"
-                + "`staffDescription`=?";
+                + "`staffDescription`=?, ";
         //if imagePath != null or empty then send it to database
         if(!imagePath.isEmpty()) query += "`staffImage` = ?";
         query += " WHERE staffID = '"+staffID+"'";
@@ -390,7 +343,6 @@ public class staffModifyController implements Initializable {
                     + "(staffID = '" + deleteStaffID + "' AND positionID = '"
                     + deletePositionID + "' AND departmentID = '"
                     + deleteDepartmentID + "' AND dateOfAssignment = '" + deleteDateOfAssignment + "')";
-            staffDescriptionField.setText(query);
             preparedStatement = con.prepareStatement(query);
             preparedStatement.execute();
         }catch (SQLException e){
@@ -398,12 +350,7 @@ public class staffModifyController implements Initializable {
         }
     }
     private void getQueryAssign() {
-        if (!jobTransferCheckBox.isSelected()) {
-            query = "INSERT INTO `assign`( `staffID`, `departmentID`,`positionID`,`dateOfAssignment`) VALUES (?,?,?,?)";
-
-        }
-        else
-            query = "INSERT INTO `assign`( `staffID`, `departmentID`,`positionID`,`dateOfAssignment`) VALUES (?,?,?,?)";
+        query = "INSERT INTO `assign`( `staffID`, `departmentID`,`positionID`,`dateOfAssignment`) VALUES (?,?,?,?)";
     }
 
     private void insertAssign() {
