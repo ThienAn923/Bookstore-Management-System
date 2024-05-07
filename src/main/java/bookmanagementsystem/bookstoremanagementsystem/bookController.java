@@ -33,16 +33,6 @@ public class bookController implements Initializable {
 
     }
     public void setData(book book){
-        Image image = new Image(getClass().getResource(book.getBookImage()).toExternalForm());
-        bookImage.setImage(image);
-        bookID.setText(book.getBookID());
-        bookAuthor.setText(book.getBookAuthor());
-        bookPublisher.setText(book.getBookPublisher());
-        bookCost.setText(String.valueOf(book.getBookCost()));
-        bookRepublish.setText(String.valueOf(book.getBookRepublish()));
-        bookLocation.setText(book.getBookLocation());
-        bookPublisher.setText(book.getBookPublisher());
-        bookCategory.setText(book.getBookCategory());
-        bookDescription.setText(book.getBookDescription());
+
     }
 }

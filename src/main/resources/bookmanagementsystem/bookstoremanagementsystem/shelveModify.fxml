@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.shelveModifyController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
          <children>
-            <Label text="CHỈNH SỬA KHU VỰC">
+            <Label text="CHỈNH SỬA KỆ">
                <font>
                   <Font name="System Bold" size="37.0" />
                </font>
@@ -25,7 +25,7 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Label text="ID khu vực:">
+                  <Label text="ID kệ:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="20.0" />
                      </VBox.margin>
@@ -39,7 +39,7 @@
             </VBox>
             <HBox alignment="CENTER" layoutY="225.0" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Button fx:id="areaModifyButton" mnemonicParsing="false" onMouseClicked="#ModifyArea" text="Chỉnh sửa" />
+                  <Button fx:id="shelveModifyButton" mnemonicParsing="false" onMouseClicked="#ModifyShelve" text="Chỉnh sửa" />
                   <Button fx:id="cleanButton" mnemonicParsing="false" onMouseClicked="#clean" text="Xóa">
                      <HBox.margin>
                         <Insets left="10.0" />
@@ -49,7 +49,7 @@
             </HBox>
             <VBox alignment="CENTER_LEFT" layoutY="75.0" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Label text="Nhập Tên khu vực:">
+                  <Label text="Nhập Tên Kệ:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="20.0" />
                      </VBox.margin>
@@ -65,7 +65,7 @@
                <children>
                   <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                      <children>
-                        <Label text="Chọn tầng:">
+                        <Label text="Chọn Khu Vực:">
                            <VBox.margin>
                               <Insets left="20.0" />
                            </VBox.margin>

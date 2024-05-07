@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.shelveAddController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
          <children>
-            <Label text="CHỈNH SỬA KHU VỰC">
+            <Label text="THÊM KHU VỰC">
                <font>
                   <Font name="System Bold" size="37.0" />
                </font>
@@ -25,21 +25,29 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Label text="ID khu vực:">
+                  <Label text="Nhập ID Kệ:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="areaIDField" prefHeight="25.0" prefWidth="280.0">
-                     <VBox.margin>
-                        <Insets left="20.0" right="300.0" />
-                     </VBox.margin>
-                  </TextField>
+                  <HBox prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="shelveIDField" prefHeight="25.0" prefWidth="235.0">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="autoButton" maxWidth="45.0" mnemonicParsing="false" onAction="#autoIDGen" text="Auto" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
                </children>
             </VBox>
             <HBox alignment="CENTER" layoutY="225.0" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Button fx:id="areaModifyButton" mnemonicParsing="false" onMouseClicked="#ModifyArea" text="Chỉnh sửa" />
+                  <Button fx:id="shelveAddButton" mnemonicParsing="false" onAction="#addShelve" text="Thêm" />
                   <Button fx:id="cleanButton" mnemonicParsing="false" onMouseClicked="#clean" text="Xóa">
                      <HBox.margin>
                         <Insets left="10.0" />
@@ -49,12 +57,12 @@
             </HBox>
             <VBox alignment="CENTER_LEFT" layoutY="75.0" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Label text="Nhập Tên khu vực:">
+                  <Label text="Nhập Tên Kệ:">
                      <VBox.margin>
                         <Insets bottom="5.0" left="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="areaNameField" onAction="#ModifyArea">
+                  <TextField fx:id="shelveNameField">
                      <VBox.margin>
                         <Insets left="20.0" right="300.0" />
                      </VBox.margin>
@@ -65,7 +73,7 @@
                <children>
                   <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: white;">
                      <children>
-                        <Label text="Chọn tầng:">
+                        <Label text="Chọn khu vực:">
                            <VBox.margin>
                               <Insets left="20.0" />
                            </VBox.margin>
