@@ -43,6 +43,11 @@ public class categoryModifyController implements Initializable {
         alert.showAndWait();
     }
 
+    private bookModifyCategoryController bookModifyCategoryController;
+    public void setController(bookModifyCategoryController bookModifyCategoryController){
+        this.bookModifyCategoryController = bookModifyCategoryController;
+    }
+
     private categoryManagementController categoryManagementController;
     public void setController(categoryManagementController categoryManagementController){
         this.categoryManagementController = categoryManagementController;
@@ -77,7 +82,7 @@ public class categoryModifyController implements Initializable {
 
         } catch (SQLException ex) {
             Logger.getLogger(categoryAddController.class.getName()).log(Level.SEVERE, null, ex);
-            warning("");
+
         }
 
     }

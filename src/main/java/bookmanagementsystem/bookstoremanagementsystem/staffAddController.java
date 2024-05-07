@@ -67,7 +67,7 @@ public class staffAddController implements Initializable {
     String staffID;
     boolean staffGender = true;
     String searchText = "";
-    String imagePath;
+    String imagePath = "";
     byte[] imageData;
 
     public void pickImage() throws IOException {

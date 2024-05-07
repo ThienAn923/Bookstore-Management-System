@@ -34,13 +34,26 @@ public class categoryAddController implements Initializable {
     String categoryID;
 
     String searchText = "";
-    void setSearchText(String searchText){
-        this.searchText = searchText;
+
+
+    private bookAddCategoryController bookAddCategoryController;
+    public void setController(bookAddCategoryController bookAddCategoryController){
+        this.bookAddCategoryController = bookAddCategoryController;
     }
+
+    bookModifyCategoryController bookModifyCategoryController;
+    public void setController(bookModifyCategoryController bookModifyCategoryController) {
+        this.bookModifyCategoryController = bookModifyCategoryController;
+    }
+
 
     private categoryManagementController categoryManagementController ;
     public void setController(categoryManagementController categoryManagementController){
         this.categoryManagementController = categoryManagementController;
+    }
+
+    void setSearchText(String searchText){
+        this.searchText = searchText;
     }
 
     @FXML
@@ -138,4 +151,5 @@ public class categoryAddController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
 }

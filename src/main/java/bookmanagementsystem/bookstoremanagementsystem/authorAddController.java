@@ -36,8 +36,10 @@ public class authorAddController implements Initializable {
 
     String authorID;
     String searchText = "";
+    boolean runningFromBookAddAuthor = false;
 
     private authorManagementController authorManagementController ;
+    private bookAddAuthorController bookAddAuthorController;
 
     void setSearchText(String searchText){
         this.searchText = searchText;
@@ -45,6 +47,14 @@ public class authorAddController implements Initializable {
 
     public void setController(authorManagementController authorManagementController){
         this.authorManagementController = authorManagementController;
+    }
+    public void setController(bookAddAuthorController bookAddAuthorController){
+        this.bookAddAuthorController = bookAddAuthorController;
+        runningFromBookAddAuthor = true;
+    }
+    bookModifyAuthorController bookModifyAuthorController;
+    public void setController(bookModifyAuthorController bookModifyAuthorController) {
+        this.bookModifyAuthorController = bookModifyAuthorController;
     }
 
     @FXML
@@ -115,7 +125,8 @@ public class authorAddController implements Initializable {
             insert();
             clean();
         }
-        authorManagementController.refresh(searchText); //to refresh the authorManagement every time a author is created
+        if(runningFromBookAddAuthor) bookAddAuthorController.refresh(searchText);
+        else authorManagementController.refresh(searchText); //to refresh the authorManagement every time a author is created
     }
     private void insert() {
         try {
@@ -147,4 +158,5 @@ public class authorAddController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
 }

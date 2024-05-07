@@ -18,13 +18,13 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class areaAddController implements Initializable {
+public class shelveAddController implements Initializable {
     @FXML
-    private TextField areaIDField;
+    private TextField shelveIDField;
     @FXML
-    private TextField areaNameField;
+    private TextField shelveNameField;
     @FXML
-    private Button areaAddButton;
+    private Button shelveAddButton;
     @FXML
     private Button cleanButton;
     @FXML
@@ -37,51 +37,50 @@ public class areaAddController implements Initializable {
     Connection con = dbConnect.getConnect();
     ResultSet resultSet = null ;
 
-    String areaID;
-    String FloorID = ""; //waiting for user to select floorID from choiceBox
-    Map<String, String> floorsMap = new HashMap<>();
-    List<String> floorsNameAndIDList = new ArrayList<>();
+    String shelveID;
+    String AreaID = ""; //waiting for user to select areaID from choiceBox
+    Map<String, String> areasMap = new HashMap<>();
+    List<String> areasNameAndIDList = new ArrayList<>();
     String searchText = "";
 
     void setSearchText(String searchText){
         this.searchText = searchText;
     }
 
-    private areaManagementController areaManagementController ;
-    public void setController(areaManagementController areaManagementController){
-        this.areaManagementController = areaManagementController;
+    private shelveManagementController shelveManagementController ;
+    public void setController(shelveManagementController shelveManagementController){
+        this.shelveManagementController = shelveManagementController;
     }
 
-
     void setUpChoicebox(){
-        //extract item from floor name and id list to put it to choice box
-        IDBox.getItems().addAll(floorsNameAndIDList);
+        //extract item from area name and id list to put it to choice box
+        IDBox.getItems().addAll(areasNameAndIDList);
 
         //set choice box's default value as the first value in database
-        if (!floorsNameAndIDList.isEmpty()) {
-            IDBox.setValue(floorsNameAndIDList.get(0)); // Set the default value to the first option
-            //set default floor ID as the first floor in database
-            FloorID = floorsMap.get(IDBox.getValue());
+        if (!areasNameAndIDList.isEmpty()) {
+            IDBox.setValue(areasNameAndIDList.get(0)); // Set the default value to the first option
+            //set default area ID as the first area in database
+            AreaID = areasMap.get(IDBox.getValue());
         }
 
     }
 
-    //This function is to get list of floorID
+    //This function is to get list of areaID
     private void getAllID() {
         try {
             //Database stuff
             con = dbConnect.getConnect();
-            query = "SELECT FloorID, FloorName FROM `floor`";
+            query = "SELECT AreaID, AreaName FROM `area`";
             preparedStatement = con.prepareStatement(query);
             resultSet = preparedStatement.executeQuery(query);
 
             while (resultSet.next()){
-                String floorID = resultSet.getString("FloorID");
-                String floorNameAndID = floorID + " - " + resultSet.getString("FloorName");
+                String areaID = resultSet.getString("AreaID");
+                String areaNameAndID = areaID + " - " + resultSet.getString("AreaName");
 
-                //add to map table and floor list
-                floorsMap.put(floorNameAndID, floorID);
-                floorsNameAndIDList.add(floorNameAndID);
+                //add to map table and area list
+                areasMap.put(areaNameAndID, areaID);
+                areasNameAndIDList.add(areaNameAndID);
             }
             con.close();
         } catch (SQLException ex) {
@@ -90,14 +89,14 @@ public class areaAddController implements Initializable {
     }
 
     public void getID(ActionEvent event){
-        FloorID = floorsMap.get(IDBox.getValue());
+        AreaID = areasMap.get(IDBox.getValue());
     }
 
     @FXML
     private void autoIDGen(){
         try {
             con = dbConnect.getConnect();
-            query = "SELECT COUNT(*) FROM `area`";
+            query = "SELECT COUNT(*) FROM `shelve`";
             preparedStatement = con.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
             resultSet.next();
@@ -108,16 +107,16 @@ public class areaAddController implements Initializable {
             boolean foundUnusedID = false;
             for(int i = 0; i < 100; i++){
                 count++;
-                id = "A000" + count;
+                id = "SLV000" + count;
                 // Check if the ID is already in use
-                query = "SELECT * FROM `area` WHERE `AreaID` = ?";
+                query = "SELECT * FROM `shelve` WHERE `shelveID` = ?";
                 preparedStatement = con.prepareStatement(query);
                 preparedStatement.setString(1, id);
                 resultSet = preparedStatement.executeQuery();
 
                 if (!resultSet.next()) {
                     foundUnusedID = true;
-                    areaIDField.setText(id);
+                    shelveIDField.setText(id);
                     break; // Exit loop if unused ID is found
                 }
 
@@ -136,7 +135,7 @@ public class areaAddController implements Initializable {
                     // Append the randomly selected character to the randomID string
                     randomID.append(CHARACTERS.charAt(randomIndex));
                 }
-                areaIDField.setText(String.valueOf(randomID));
+                shelveIDField.setText(String.valueOf(randomID));
 
                 con.close();
             }
@@ -147,13 +146,13 @@ public class areaAddController implements Initializable {
 
 
     @FXML
-    private void addArea() {
-        areaID = areaIDField.getText();
-        String areaName = areaNameField.getText();
+    private void addShelve() {
+        shelveID = shelveIDField.getText();
+        String shelveName = shelveNameField.getText();
 
         con = dbConnect.getConnect();
 
-        if (areaID.isEmpty() || areaName.isEmpty()) {
+        if (shelveID.isEmpty() || shelveName.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Có thể có khung còn trống");
@@ -164,36 +163,36 @@ public class areaAddController implements Initializable {
             clean();
 
         }
-        areaManagementController.refresh(searchText);
+        shelveManagementController.refresh(searchText);
     }
     private void insert() {
         try {
             preparedStatement = con.prepareStatement(query);
-            preparedStatement.setString(1, areaIDField.getText());
-            preparedStatement.setString(2, areaNameField.getText());
-            preparedStatement.setString(3, FloorID);
+            preparedStatement.setString(1, shelveIDField.getText());
+            preparedStatement.setString(2, shelveNameField.getText());
+            preparedStatement.setString(3, AreaID);
             preparedStatement.execute();
 
         } catch (SQLException ex) {
-            Logger.getLogger(floorAddController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(areaAddController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
     @FXML
     private void clean() {
-        areaIDField.setText(null);
-        areaNameField.setText(null);
+        shelveIDField.setText(null);
+        shelveNameField.setText(null);
     }
 
     private void getQuery() {
-            query = "INSERT INTO `area`( `AreaID`, `AreaName`, `FloorID`) VALUES (?,?,?)";
+        query = "INSERT INTO `shelve`( `shelveID`, `shelveName`, `AreaID`) VALUES (?,?,?)";
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-        getAllID(); // get all floors ID
+        getAllID(); // get all areas ID
         //pass all data from getAllID to list box
         setUpChoicebox();
         //choose the fist option as default
