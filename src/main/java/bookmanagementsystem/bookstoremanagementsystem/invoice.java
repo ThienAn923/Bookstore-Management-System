@@ -12,9 +12,9 @@ public class invoice {
     int moneyPayBack;
     String staffID;
     String customerID;
-    String promotionID;
 
-    public invoice(String invoiceID, Date dateOfCreate, int totalMoney, String taxNumber, int point, int moneyReceive, int moneyPayBack, String staffID, String customerID, String promotionID) {
+
+    public invoice(String invoiceID, Date dateOfCreate, int totalMoney, String taxNumber, int point, int moneyReceive, int moneyPayBack, String staffID, String customerID) {
         this.invoiceID = invoiceID;
         this.dateOfCreate = dateOfCreate;
         this.totalMoney = totalMoney;
@@ -24,7 +24,7 @@ public class invoice {
         this.moneyPayBack = moneyPayBack;
         this.staffID = staffID;
         this.customerID = customerID;
-        this.promotionID = promotionID;
+
     }
 
     public String getInvoiceID() {
@@ -99,11 +99,4 @@ public class invoice {
         this.customerID = customerID;
     }
 
-    public String getPromotionID() {
-        return promotionID;
-    }
-
-    public void setPromotionID(String promotionID) {
-        this.promotionID = promotionID;
-    }
 }

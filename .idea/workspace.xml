@@ -4,16 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b847680c-1635-49b6-ab5a-0f41e00a5caf" name="Changes" comment="add accountManagement">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/invoice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/invoiceDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/paymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/promotion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/promotionToInvoice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/payment.fxml" afterDir="false" />
+    <list default="true" id="b847680c-1635-49b6-ab5a-0f41e00a5caf" name="Changes" comment="invoice stuff">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/invoiceManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/promotionAddController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/promotionManagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/promotionModifyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/invoiceManagement.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/promotionAdd.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/promotionManagement.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/promotionModify.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/bookManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/bookManagementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/customerManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/customerManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/invoice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/testManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/testManagement.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="staffManagement" />
+        <entry key="$PROJECT_DIR$" value="accountManagement" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,7 +68,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "accountManagement",
+    "git-widget-placeholder": "invoice",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "D:/CTU/Java/IntellijProject/BookStore/BookstoreManagementSystem/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/Libs/fontawesomefx-commons-9.1.2.jar",
     "list.type.of.created.stylesheet": "CSS",
@@ -192,7 +193,7 @@
       <workItem from="1714956938802" duration="35719000" />
       <workItem from="1715042183347" duration="980000" />
       <workItem from="1715064472541" duration="29028000" />
-      <workItem from="1715131664759" duration="16760000" />
+      <workItem from="1715131664759" duration="22948000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -322,7 +323,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715132838820</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="invoice stuff">
+      <option name="closed" value="true" />
+      <created>1715170265876</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1715170265876</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +363,8 @@
     <MESSAGE value="complete staffManagement" />
     <MESSAGE value="adding books management (still have bugs)" />
     <MESSAGE value="add accountManagement" />
-    <option name="LAST_COMMIT_MESSAGE" value="add accountManagement" />
+    <MESSAGE value="invoice stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="invoice stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
