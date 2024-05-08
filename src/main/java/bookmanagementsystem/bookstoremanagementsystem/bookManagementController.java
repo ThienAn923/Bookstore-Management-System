@@ -61,6 +61,10 @@ public class bookManagementController implements Initializable{
         alert.setContentText(content);
         alert.showAndWait();
     }
+    paymentController paymentController;
+    public void setController(paymentController paymentController){
+        this.paymentController = paymentController;
+    }
     @FXML
     void findBook(){
         searchText = findBox.getText();
@@ -250,29 +254,32 @@ public class bookManagementController implements Initializable{
             bookBox.getChildren().addAll(bookIdLabel, bookNameLabel, shelveIDLabel, bookRepublishLabel, publisherIDLabel,bookQuantityLabel, buttonBox);
             bookBox.setOnMouseClicked(event -> {
                 if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
-                    try {
-                        // Open a new scene or perform any action you want here
-                        FXMLLoader Detailsloader = new FXMLLoader(getClass().getResource("bookDetail.fxml"));
-                        Parent root = Detailsloader.load();
-                        root.getStylesheets().add(getClass().getResource("css/staffDetail.css").toExternalForm());
-                        bookDetailController bookDetailController = Detailsloader.getController();
-                        // Pass a reference to the Scene A controller to Scene B
-                        bookDetailController.setController(this);
-                        if (bookDetailController != null) {
-                            if (!bookBox.getChildren().isEmpty() && bookBox.getChildren().get(0) instanceof Label)
-                                bookDetailController.setValue(((Label) bookBox.getChildren().get(0)).getText());
-                            else warning("Something happen... i can't have children");
-                        } else {
-                            System.err.println("Controller is null.");
-                        }
-                        Stage stage = new Stage();
-                        stage.setTitle("Thông tin chi tiết");
-                        stage.setScene(new Scene(root));
-
-                        stage.show();
-                    }catch (IOException e){
-                        warning("Không thể xem chi tiết nhân viên");
-                    }
+//                    try {
+//                        // Open a new scene or perform any action you want here
+//                        FXMLLoader Detailsloader = new FXMLLoader(getClass().getResource("bookDetail.fxml"));
+//                        Parent root = Detailsloader.load();
+//                        root.getStylesheets().add(getClass().getResource("css/staffDetail.css").toExternalForm());
+//                        bookDetailController bookDetailController = Detailsloader.getController();
+//                        // Pass a reference to the Scene A controller to Scene B
+//                        bookDetailController.setController(this);
+//                        if (bookDetailController != null) {
+//                            if (!bookBox.getChildren().isEmpty() && bookBox.getChildren().get(0) instanceof Label)
+//                                bookDetailController.setValue(((Label) bookBox.getChildren().get(0)).getText());
+//                            else warning("Something happen... i can't have children");
+//                        } else {
+//                            System.err.println("Controller is null.");
+//                        }
+//                        Stage stage = new Stage();
+//                        stage.setTitle("Thông tin chi tiết");
+//                        stage.setScene(new Scene(root));
+//
+//                        stage.show();
+//                    }catch (IOException e){
+//                        warning("Không thể xem chi tiết nhân viên");
+//                    }
+                    paymentController.setBook(book.getBookID(),book.getBookName(), book.getBookRepublish(), book.getPublicsherID());
+                    Stage stage = (Stage) bookIdLabel.getScene().getWindow(); //any FxID would work
+                    stage.close();
                 }
             });
             // Add the HBox for each book to your layout

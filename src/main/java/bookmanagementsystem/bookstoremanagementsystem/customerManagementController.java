@@ -12,6 +12,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -61,6 +62,11 @@ public class customerManagementController implements Initializable {
         refreshData(searchText);
         clearTable();
         getCustomer();
+    }
+
+    paymentController paymentController;
+    public void setController(paymentController paymentController){
+        this.paymentController = paymentController;
     }
 
     @FXML
@@ -227,6 +233,14 @@ public class customerManagementController implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                     warning("Không thể mở edit");
+                }
+            });
+
+            customerBox.setOnMouseClicked(event -> {
+                if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                    paymentController.setCustomer(customer.getCustomerID(),customer.getCustomerName(),customer.getCustomerPhoneNumber(),customer.getCustomerPoint(),customer.isCustomerGender());
+                    Stage stage = (Stage) customerIdLabel.getScene().getWindow(); //any FxID would work
+                    stage.close();
                 }
             });
 

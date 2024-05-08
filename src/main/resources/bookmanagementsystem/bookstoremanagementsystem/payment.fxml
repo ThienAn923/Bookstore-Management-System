@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.paymentController">
+   <children>
+      <HBox prefHeight="50.0" prefWidth="1000.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="500.0">
+               <children>
+                  <Label text="Thông Tin Khách Hàng" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="500.0">
+               <children>
+                  <Label text="Thông Tin Thanh Toán" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <Pane layoutY="50.0" prefHeight="500.0" prefWidth="1000.0">
+         <children>
+            <VBox prefHeight="400.0" prefWidth="500.0" style="-fx-border-width: 1; -fx-border-color: black;">
+               <children>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Chọn Khách Hàng:">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox>
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <TextField fx:id="customerIDField" maxWidth="150.0" minHeight="0.0" />
+                                    <Button fx:id="pickCustomerButton" maxWidth="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#pickCustomer" text="Chọn" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Tên Khách Hàng:">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="customerNameField" maxWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Số Điện Thoại">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox>
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <TextField fx:id="customerPhoneNumberField" maxWidth="197.0" minHeight="0.0" prefHeight="25.0" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Số điểm hiện có">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="customerPointField" maxWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Giới tính:">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox>
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <TextField fx:id="customerGenderField" maxWidth="197.0" minHeight="0.0" prefHeight="25.0" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label text="Thông Tin Sách">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="25.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Chọn Sách:">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox>
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <TextField fx:id="bookIDField" maxWidth="150.0" minHeight="0.0" />
+                                    <Button fx:id="pickBookButton" maxWidth="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#pickBook" text="Chọn" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Tên Sách:">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="bookNameField" maxWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Tái Bản">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox>
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <TextField fx:id="bookRepublishField" maxWidth="197.0" minHeight="0.0" prefHeight="25.0" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Nhà xuất bản">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="bookPublisherField" maxWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Số Lượng:">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="numberField" maxWidth="200.0" onKeyReleased="#calculateTotalMoney">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="500.0" prefHeight="400.0" prefWidth="500.0" style="-fx-border-color: black; -fx-border-width: 1 1 1 0;">
+               <children>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Mã Hóa Đơn">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox>
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <TextField fx:id="invoiceIDField" maxWidth="197.0" minHeight="0.0" prefWidth="197.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Mã số thuế:">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="taxNumberField" maxWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Tổng tiền:">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox>
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <TextField fx:id="totalMoneyField" maxWidth="197.0" minHeight="0.0" prefHeight="25.0" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Số tiền Nhận:">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="moneyreceiveField" maxWidth="200.0" onKeyReleased="#calculateMoneyReturn">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Số tiền trả lại:">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox>
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <TextField fx:id="moneyReturnField" maxWidth="197.0" minHeight="0.0" prefHeight="25.0" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Ngày tạo hóa đơn">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <DatePicker fx:id="dateOfCreateField" prefWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </DatePicker>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label text="Thông tin  khuyến mãi:">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="25.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Mã Khuyến Mãi">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox>
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <TextField fx:id="promotionIDField" maxWidth="197.0" minHeight="0.0" prefWidth="197.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Tên Khuyến Mãi::">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="promotionNameField" maxWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Tỷ lệ:">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="promotionPercentageField" maxWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets left="25.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="250.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#clean" text="Clear">
+                                 <VBox.margin>
+                                    <Insets right="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" onAction="#executePayment" text="Thanh Toán">
+                           <HBox.margin>
+                              <Insets right="25.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Pane layoutY="400.0" prefHeight="100.0" prefWidth="1000.0">
+               <children>
+                  <HBox prefHeight="30.0" prefWidth="1000.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="333.0">
+                           <children>
+                              <Label text="Doanh thu hôm nay:" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="333.0">
+                           <children>
+                              <Label text="Số khách đã tiếp:" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="333.0">
+                           <children>
+                              <Label text="Doanh thu trong tháng:" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutY="30.0" prefHeight="70.0" prefWidth="1000.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="333.0">
+                           <children>
+                              <Label text="9999" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="333.0">
+                           <children>
+                              <Label text="9999" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="333.0">
+                           <children>
+                              <Label text="9999" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</Pane>
