@@ -4,18 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b847680c-1635-49b6-ab5a-0f41e00a5caf" name="Changes" comment="invoice stuff">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/invoiceManagement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/promotionAddController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/promotionManagementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/promotionModifyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/invoiceManagement.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/promotionAdd.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/promotionManagement.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/promotionModify.fxml" afterDir="false" />
+    <list default="true" id="b847680c-1635-49b6-ab5a-0f41e00a5caf" name="Changes" comment="adding stuff">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/images/book.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/invoice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/mainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/mainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/paymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/paymentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/testManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmanagementsystem/bookstoremanagementsystem/testManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/css/loginPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/css/loginPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/payment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/payment.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +69,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "invoice",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/CTU/Java/IntellijProject/BookStore/BookstoreManagementSystem/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/Libs/fontawesomefx-commons-9.1.2.jar",
+    "last_opened_file_path": "D:/CTU/Java/IntellijProject/BookStore/BookstoreManagementSystem/src/main/resources/bookmanagementsystem/bookstoremanagementsystem/images",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -85,10 +84,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources\bookmanagementsystem\bookstoremanagementsystem\images" />
       <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources\bookmanagementsystem\bookstoremanagementsystem\Libs" />
       <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources\bookmanagementsystem\bookstoremanagementsystem\icons\svg" />
       <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources" />
-      <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\resources\bookmanagementsystem\bookstoremanagementsystem\images" />
       <recent name="D:\CTU\Java\IntellijProject\BookStore\BookstoreManagementSystem\src\main\java\bookmanagementsystem\bookstoremanagementsystem" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -193,7 +192,8 @@
       <workItem from="1714956938802" duration="35719000" />
       <workItem from="1715042183347" duration="980000" />
       <workItem from="1715064472541" duration="29028000" />
-      <workItem from="1715131664759" duration="22948000" />
+      <workItem from="1715131664759" duration="23171000" />
+      <workItem from="1715184280711" duration="10549000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -331,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715170265876</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="adding stuff">
+      <option name="closed" value="true" />
+      <created>1715179329601</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1715179329601</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +372,8 @@
     <MESSAGE value="adding books management (still have bugs)" />
     <MESSAGE value="add accountManagement" />
     <MESSAGE value="invoice stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="invoice stuff" />
+    <MESSAGE value="adding stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

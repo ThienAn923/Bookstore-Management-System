@@ -89,6 +89,15 @@ public class paymentController implements Initializable {
 
     String staffID = "STF0001"; // detele later
 
+    mainController mainController;
+    public void setController(mainController mainController) {
+        this.mainController = mainController;
+    }
+
+    void setStaffID(String staffID){
+        this.staffID = staffID;
+    }
+
     void warning(String warning){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);

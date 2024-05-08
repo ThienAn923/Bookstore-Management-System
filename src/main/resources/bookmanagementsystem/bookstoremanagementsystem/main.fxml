@@ -7,95 +7,81 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookmanagementsystem.bookstoremanagementsystem.mainController">
    <children>
-      <HBox layoutX="200.0" prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: white;" />
+      <HBox alignment="CENTER_RIGHT" layoutX="200.0" prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #2fd0fe;">
+         <children>
+            <Label fx:id="staffName" text="Nhân Viên: " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+         </children></HBox>
       <Pane fx:id="tempPane" layoutX="200.0" layoutY="50.0" prefHeight="550.0" prefWidth="1000.0">
          <children>
 <!--            This panel right here is just for the purpose of filling the main pain so the loadPage method run correctly-->
             <Pane fx:id="fillBoard" prefHeight="550.0" prefWidth="1000.0" />
          </children>
       </Pane>
-      <StackPane fx:id="mainSidebar" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: purple;">
+      <StackPane fx:id="mainSidebar" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #2fd0fe;">
          <children>
-            <VBox fx:id="spaceManagementOption" prefHeight="169.0" prefWidth="200.0" style="-fx-background-color: white;">
+            <VBox fx:id="bookManagementOption" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #2fd0fe;">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#bookLoad" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Kệ" />
+                        <Label text="Sách" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#categoryLoad" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Tầng" />
+                        <Label text="Thể loại" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#authorLoad" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Khu vực" />
+                        <Label text="Tác giả" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
-               </children>
-               <StackPane.margin>
-                  <Insets bottom="150.0" top="300.0" />
-               </StackPane.margin>
-            </VBox>
-            <VBox fx:id="bookManagementOption" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: white;">
-               <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#publisherLoad" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Sách" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets left="15.0" right="5.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Thể loại" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets left="15.0" right="5.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Tác giả" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets left="15.0" right="5.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Nhà xuất bản" />
+                        <Label text="Nhà xuất bản" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -106,99 +92,115 @@
                   <Insets bottom="350.0" top="50.0" />
                </StackPane.margin>
             </VBox>
-            <VBox fx:id="managementOption" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: white;">
+            <VBox fx:id="managementOption" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #2fd0fe;">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox fx:id="bookManagementBox" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Quản lý sách" />
+                        <Label text="Quản lý sách" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#staffLoad" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Quản lý nhân viên" />
+                        <Label text="Quản lý nhân viên" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#invoiceLoad" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Quản lý hóa đơn" />
+                        <Label text="Quản lý hóa đơn" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#accountLoad" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Quản lý tài khoản" />
+                        <Label text="Quản lý tài khoản" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
                      </children>
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox fx:id="spaceManagementBox" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Quản lý nhập hàng" />
+                        <Label text="Quản lý không gian" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#promotionLoad" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Quản lý lịch trực" />
+                        <Label text="Quản lý khuyến mãi" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#departmentLoad" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Quản lý không gian" />
+                        <Label text="Quản lý Bộ Phận" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#positionLoad" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Quản lý khuyến mãi" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets left="15.0" right="5.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Quản lý chi tiêu" />
+                        <Label text="Quản lý Chức Vụ" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
                </children>
@@ -206,92 +208,114 @@
                   <Insets top="50.0" />
                </StackPane.margin>
             </VBox>
-            <VBox fx:id="sidebarOption" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: white;">
+            <VBox fx:id="spaceManagementOption" prefHeight="169.0" prefWidth="200.0" style="-fx-background-color: #2fd0fe;">
+               <children>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#shelveLoad" prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="15.0" right="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Kệ" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#floorLoad" prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="15.0" right="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Tầng" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#areaLoad" prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="15.0" right="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Khu vực" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
+                     </children>
+                  </HBox>
+               </children>
+               <StackPane.margin>
+                  <Insets bottom="250.0" top="200.0" />
+               </StackPane.margin>
+            </VBox>
+            <VBox fx:id="sidebarOption" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #2fd0fe;">
                <StackPane.margin>
                   <Insets top="50.0" />
                </StackPane.margin>
                <children>
-                  <HBox fx:id="dashBoardNavi" alignment="CENTER_LEFT" onMouseClicked="#dashBoardLoad" prefHeight="50.0" prefWidth="200.0">
+                  <HBox fx:id="payment" alignment="CENTER_LEFT" onMouseClicked="#paymentLoad" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2fd0fe;">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Dashboard" />
+                        <Label text="Thanh Toán" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
-                  <HBox fx:id="payment" alignment="CENTER_LEFT" onMouseClicked="#bookManagementLoad" prefHeight="50.0" prefWidth="200.0">
+                  <HBox fx:id="managementBox" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2fd0fe;">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Thanh Toán" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets left="15.0" right="5.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Lập biên bản" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets left="15.0" right="5.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Báo Cáo" />
+                        <Label text="Quản lý" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox fx:id="managementBox" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2fd0fe;">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Quản lý" />
+                        <Label fx:id="lockApp" onMouseClicked="#lockApp" text="Khóa ứng dụng" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#logout" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2fd0fe;">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Khóa ứng dụng" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets left="15.0" right="5.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Đăng xuất" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets left="15.0" right="5.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Trợ giúp" />
+                        <Label text="Đăng xuất" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
                </children>

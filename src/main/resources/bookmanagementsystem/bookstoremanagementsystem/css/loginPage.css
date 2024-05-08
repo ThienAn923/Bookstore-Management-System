@@ -7,7 +7,7 @@
     -fx-background-color: #ffffff;
 }
 #titleLogo{
-    -fx-background-image: url(../images/loginLogo.png);;
+    -fx-background-image: url(../images/book.png);;
     -fx-background-size: contain;
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;

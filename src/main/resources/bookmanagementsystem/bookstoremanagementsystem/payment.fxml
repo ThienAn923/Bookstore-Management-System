@@ -27,7 +27,7 @@
       </HBox>
       <Pane layoutY="50.0" prefHeight="500.0" prefWidth="1000.0">
          <children>
-            <VBox prefHeight="400.0" prefWidth="500.0" style="-fx-border-width: 1; -fx-border-color: black;">
+            <VBox prefHeight="500.0" prefWidth="500.0" style="-fx-border-width: 1; -fx-border-color: black;">
                <children>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
@@ -220,7 +220,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox layoutX="500.0" prefHeight="400.0" prefWidth="500.0" style="-fx-border-color: black; -fx-border-width: 1 1 1 0;">
+            <VBox layoutX="500.0" prefHeight="500.0" prefWidth="500.0" style="-fx-border-color: black; -fx-border-width: 1 1 1 0;">
                <children>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
@@ -408,48 +408,7 @@
                   </HBox>
                </children>
             </VBox>
-            <Pane layoutY="400.0" prefHeight="100.0" prefWidth="1000.0">
-               <children>
-                  <HBox prefHeight="30.0" prefWidth="1000.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="333.0">
-                           <children>
-                              <Label text="Doanh thu hôm nay:" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="333.0">
-                           <children>
-                              <Label text="Số khách đã tiếp:" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="333.0">
-                           <children>
-                              <Label text="Doanh thu trong tháng:" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </HBox>
-                  <HBox layoutY="30.0" prefHeight="70.0" prefWidth="1000.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="333.0">
-                           <children>
-                              <Label text="9999" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="333.0">
-                           <children>
-                              <Label text="9999" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="333.0">
-                           <children>
-                              <Label text="9999" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </HBox>
-               </children>
-            </Pane>
+            <Pane layoutY="400.0" prefHeight="100.0" prefWidth="1000.0" />
          </children>
       </Pane>
    </children>
